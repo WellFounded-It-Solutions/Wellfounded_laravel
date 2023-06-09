@@ -25,5 +25,6 @@
             @yield('content')
         </main>
     </div>
+    @include('include.script')	
 </body>
 </html>
