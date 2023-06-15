@@ -5,38 +5,13 @@
     <div class="container-fluid">
         <div class="page-header">
             <div class="row align-items-end">
-                <div class="col-lg-6">
-                    <div class="page-header-title">
-                        <i class="ik ik-users bg-blue"></i>
-                        <div class="d-inline">
-                            <h5>{{ __('Developers Table')}}</h5>
-                            <span>{{ __('Create Update Remove developers')}}</span>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
 
         <div class="d-flex justify-content-between">
             <div class="top-menu d-flex align-items-center">
                 <button type="button" class="btn-icon mobile-nav-toggle d-lg-none"><span></span></button>
-
-                <!-- <div class="header-search">
-                    <div class="input-group">
-
-                        <span class="input-group-addon search-close">
-                            <i class="ik ik-x"></i>
-                        </span>
-                        <input type="text" class="form-control">
-                        <span class="input-group-addon search-btn"><i class="ik ik-search"></i></span>
-                    </div>
-                </div> -->
-                <!-- <button class="nav-link" title="clear cache">
-                    <a  href="{{url('clear-cache')}}">
-                    <i class="ik ik-battery-charging"></i> 
-                </a>
-                </button> &nbsp;&nbsp;
-                <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button> -->
             </div>
             <div class="top-menu d-flex align-items-center">
                 <div class="dropdown">
@@ -98,16 +73,7 @@
                     </div>
                 </div> -->
                 <!-- <button type="button" class="nav-link ml-10" id="apps_modal_btn" data-toggle="modal" data-target="#appsModal"><i class="ik ik-grid"></i></button> -->
-                <div>
-                    <ol style="padding: 0px;display: flex;margin-left: 1rem;">
-                        <li class="breadcrumbb breadcrumbb-item">
-                            <a href="#" onclick="openTab('Developer_Table')"><i class="ik ik-list"></i></a>
-                        </li>
-                        <li class="breadcrumbb breadcrumbb-item">
-                            <a href="#" onclick="openTab('Developer_Grid')"><i class="ik ik-grid"></i></a>
-                        </li>
-                    </ol>
-                </div>
+               
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"><img class="avatar" src="{{ asset('img/user.jpg')}}"
