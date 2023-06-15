@@ -1,4 +1,4 @@
-@extends('layouts.partial')
+@extends('layouts.main')
 @section('content')
     <div class="row">
         <div class="col-xl-9 col-lg-9 col-md-9 m-auto">

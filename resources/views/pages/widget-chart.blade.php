@@ -375,7 +375,7 @@
             <div class="col-md-12">
                 <div class="card sale-card">
                     <div class="card-header">
-                        <h3>{{ __('Deals Analytics')}}</h3>
+                        <h3>{{ __('map Analytics')}}</h3>
                     </div>
                     <div class="card-block">
                         <div class="row">

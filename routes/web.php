@@ -26,6 +26,7 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::post('register', [RegisterController::class, 'register']);
 
+
 Route::get('password/forget',  function () {
     return view('pages.forgot-password');
 })->name('password.forget');
@@ -258,3 +259,9 @@ Route::get('/register', function () {
 Route::get('/login-1', function () {
     return view('pages.login');
 });
+
+
+
+//Super_admin Wellfounded routes
+Route::get('/admin_wellfounded', function () { return view('super_admin.dashboard'); });
+Route::get('/manage_developer', function () { return view('super_admin.manage_developer'); });
