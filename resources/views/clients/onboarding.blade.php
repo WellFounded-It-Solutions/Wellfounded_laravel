@@ -4,10 +4,10 @@
         <div class="col-xl-9 col-lg-9 col-md-9 m-auto">
             <div class="card">
                 <div class="card-header">
-                    <h3>{{ __('Agency Onboarding Form') }}</h3>
+                    <h3>{{ __('Client Onboarding Form') }}</h3>
                 </div>
                 <div class="card-body">
-                    <form class="forms-sample" action="{{ route('vender.onboarding') }}" method="POST"
+                    <form class="forms-sample" action="{{ route('clients.onboarding') }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">

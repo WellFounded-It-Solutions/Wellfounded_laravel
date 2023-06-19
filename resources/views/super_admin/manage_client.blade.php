@@ -25,10 +25,10 @@ function openTab(tabName) {
         <div class="row align-items-end">
             <div class="col-lg-6">
                 <div class="page-header-title">
-                    <i class="ik ik-users bg-blue"></i>
+                    <i class="ik ik-briefcase bg-blue"></i>
                     <div class="d-inline">
-                        <h5>{{ __('Developers Table')}}</h5>
-                        <span>{{ __('Create Update Remove developers')}}</span>
+                        <h5>{{ __('Client Table')}}</h5>
+                        <span>{{ __('Create Update Remove Client')}}</span>
                     </div>
                 </div>
             </div>
@@ -41,23 +41,23 @@ function openTab(tabName) {
                         <li class="breadcrumb-item">
                             <a href="#">wellfounded</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Manage Developers &nbsp&nbsp</li>
+                        <li class="breadcrumb-item active" aria-current="page">Manage Clients &nbsp &nbsp</li>
                         <div>
                        
-                            <div class="collapse d-md-block display-options" id="displayOptions">
-                                <span class="mr-3 d-inline-block float-md-left dispaly-option-buttons">
-                                    <a href="#" class="mr-1 view-list active" onclick="openTab('Developer_Table')">
-                                        <i class="ik ik-menu view-icon"></i>
-                                    </a>
-                                   
-                                    <a href="#" class="mr-1 view-grid" onclick="openTab('Developer_Grid')">
-                                        <i class="ik ik-grid view-icon"></i>
-                                    </a>
-                                </span>
+                       <div class="collapse d-md-block display-options" id="displayOptions">
+                           <span class="mr-3 d-inline-block float-md-left dispaly-option-buttons">
+                               <a href="#" class="mr-1 view-list active" onclick="openTab('Developer_Table')">
+                                   <i class="ik ik-menu view-icon"></i>
+                               </a>
+                              
+                               <a href="#" class="mr-1 view-grid" onclick="openTab('Developer_Grid')">
+                                   <i class="ik ik-grid view-icon"></i>
+                               </a>
+                           </span>
 
-                            </div>
-                           
-                        </div>
+                       </div>
+                      
+                   </div>
                     </ol>
 
 
@@ -72,10 +72,6 @@ function openTab(tabName) {
         <div class="card-header d-block">
             <h3>{{ __('Default Ordering')}}</h3>
         </div>
-        
-
-
-
         <div class="card-body">
             <div class="dt-responsive">
                 <table id="order-table" class="table table-striped table-bordered nowrap">

@@ -40,7 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('developer/onboarding',  [HomeController::class, 'developerOnboarding'])->name('developer.onboarding');
 
-    Route::post('vender/onboarding',  [HomeController::class, 'venderOnboarding'])->name('vender.onboarding');
+    Route::post('agency/onboarding',  [HomeController::class, 'agencyOnboarding'])->name('agency.onboarding');
+    Route::post('clients/onboarding',  [HomeController::class, 'clientOnboarding'])->name('clients.onboarding');
+
 
     Route::get('/logout', [LoginController::class, 'logout']);
     Route::get('/clear-cache', [HomeController::class, 'clearCache']);
@@ -265,3 +267,20 @@ Route::get('/login-1', function () {
 //Super_admin Wellfounded routes
 Route::get('/admin_wellfounded', function () { return view('super_admin.dashboard'); });
 Route::get('/manage_developer', function () { return view('super_admin.manage_developer'); });
+Route::get('/manage_agency', function () { return view('super_admin.manage_agency'); });
+Route::get('/manage_client', function () { return view('super_admin.manage_client'); });
+
+
+//Agency Routes
+Route::get('/agency_dashboard', function () { return view('agency.dashboard'); });
+
+
+//Client Routes
+Route::get('/client_dashboard', function () { return view('clients.dashboard'); });
+
+
+
+
+//Developer Routes
+Route::get('/developer_dashboard', function () { return view('developer.dashboard'); });
+Route::get('/developer_taskboard', function () { return view('developer.taskboard'); });

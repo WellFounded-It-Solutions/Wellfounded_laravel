@@ -25,10 +25,10 @@ function openTab(tabName) {
         <div class="row align-items-end">
             <div class="col-lg-6">
                 <div class="page-header-title">
-                    <i class="ik ik-users bg-blue"></i>
+                    <i class="ik ik-home bg-blue"></i>
                     <div class="d-inline">
-                        <h5>{{ __('Developers Table')}}</h5>
-                        <span>{{ __('Create Update Remove developers')}}</span>
+                        <h5>{{ __('Agency Table')}}</h5>
+                        <span>{{ __('Create Update Remove Agency')}}</span>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@ function openTab(tabName) {
                         <li class="breadcrumb-item">
                             <a href="#">wellfounded</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Manage Developers &nbsp&nbsp</li>
+                        <li class="breadcrumb-item active" aria-current="page">Manage Agency &nbsp &nbsp</li> 
                         <div>
                        
                             <div class="collapse d-md-block display-options" id="displayOptions">
@@ -72,10 +72,6 @@ function openTab(tabName) {
         <div class="card-header d-block">
             <h3>{{ __('Default Ordering')}}</h3>
         </div>
-        
-
-
-
         <div class="card-body">
             <div class="dt-responsive">
                 <table id="order-table" class="table table-striped table-bordered nowrap">
@@ -1860,9 +1856,9 @@ function openTab(tabName) {
 
 
 
-    <div class="card tab" style="display:none; "    id="Developer_Grid">
+    <div class="card tab" style="display:none; " id="Developer_Grid">
 
-    <div class="card-header d-block">
+        <div class="card-header d-block">
             <h3>{{ __('Grid View')}}</h3>
         </div>
 

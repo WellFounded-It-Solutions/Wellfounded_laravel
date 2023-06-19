@@ -1,4 +1,4 @@
-@extends('super_admin.layout')
+@extends('clients.layout')
 @section('title', 'Manage Developer')
 @section('content')
 @push('head')
@@ -41,41 +41,27 @@ function openTab(tabName) {
                         <li class="breadcrumb-item">
                             <a href="#">wellfounded</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Manage Developers &nbsp&nbsp</li>
+                        <li class="breadcrumb-item active" aria-current="page">Manage Developers</li>
                         <div>
-                       
-                            <div class="collapse d-md-block display-options" id="displayOptions">
-                                <span class="mr-3 d-inline-block float-md-left dispaly-option-buttons">
-                                    <a href="#" class="mr-1 view-list active" onclick="openTab('Developer_Table')">
-                                        <i class="ik ik-menu view-icon"></i>
-                                    </a>
-                                   
-                                    <a href="#" class="mr-1 view-grid" onclick="openTab('Developer_Grid')">
-                                        <i class="ik ik-grid view-icon"></i>
-                                    </a>
-                                </span>
-
-                            </div>
-                           
+                            <ol style="padding: 0px;display: flex;margin-left: 1rem;background-color: #e9ecef;">
+                                <li class="breadcrumbb breadcrumbb-item">
+                                    <a href="#" onclick="openTab('Developer_Table')"><i class="ik ik-list"></i></a>
+                                </li>
+                                <li class="breadcrumbb breadcrumbb-item">
+                                    <a href="#" onclick="openTab('Developer_Grid')"><i class="ik ik-grid"></i></a>
+                                </li>
+                            </ol>
                         </div>
                     </ol>
-
-
                 </nav>
-
             </div>
         </div>
     </div>
     <div class="card  tab" id="Developer_Table">
 
-
         <div class="card-header d-block">
             <h3>{{ __('Default Ordering')}}</h3>
         </div>
-        
-
-
-
         <div class="card-body">
             <div class="dt-responsive">
                 <table id="order-table" class="table table-striped table-bordered nowrap">
@@ -1860,9 +1846,9 @@ function openTab(tabName) {
 
 
 
-    <div class="card tab" style="display:none; "    id="Developer_Grid">
+    <div class="card tab" style="display:none; " id="Developer_Grid">
 
-    <div class="card-header d-block">
+        <div class="card-header d-block">
             <h3>{{ __('Grid View')}}</h3>
         </div>
 
@@ -2047,7 +2033,6 @@ function openTab(tabName) {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
@@ -2083,7 +2068,6 @@ function openTab(tabName) {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 

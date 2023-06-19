@@ -17,22 +17,13 @@
     <div class="sidebar-content">
         <div class="nav-container">
             <nav id="main-menu-navigation" class="navigation-main">
-                <div class="nav-item {{ ($segment2 == 'admin_wellfounded') ? 'active' : '' }}">
-                    <a href="{{url('/admin_wellfounded')}}"><i class="ik ik-bar-chart-2"></i><span> {{ __('Dashboard')}}</span></a>
+                <div class="nav-item {{ ($segment2 == 'agency_dashboard') ? 'active' : '' }}">
+                    <a href="{{url('/agency_dashboard')}}"><i class="ik ik-bar-chart-2"></i><span> {{ __('Dashboard')}}</span></a>
                    
                 </div>
 
                 <!-- start inventory pages -->
-                 <div class="nav-item {{ ($segment1 == 'manage_developer') ? 'active' : '' }}">
-                    <a href="{{url('/manage_developer')}}"><i class="ik ik-users"></i><span>{{ __('Manage Developer')}}</span> </a>
-                </div>
-
-                <div class="nav-item {{ ($segment1 == 'manage_agency') ? 'active' : '' }}">
-                    <a href="{{url('/manage_agency')}}"><i class="ik ik-home"></i><span>{{ __('Manage Agency')}}</span> </a>
-                </div>
-                <div class="nav-item {{ ($segment1 == 'manage_client') ? 'active' : '' }}">
-                    <a href="{{url('/manage_client')}}"><i class="ik ik-briefcase"></i><span>{{ __('Manage Client')}}</span> </a>
-                </div>
+                 
 
 
                <!-- 

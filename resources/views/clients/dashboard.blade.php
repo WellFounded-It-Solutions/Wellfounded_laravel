@@ -1,10 +1,18 @@
-@extends('super_admin.layout')
-@section('title', 'Manage Developer')
+@extends('clients.layout')
+@section('title', 'Dashboard')
 @section('content')
+
+<!-- push external head elements to head -->
 @push('head')
+<link rel="stylesheet" href="{{ asset('plugins/weather-icons/css/weather-icons.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/owl.carousel/dist/assets/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/owl.carousel/dist/assets/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/chartist/dist/chartist.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/jvectormap/jquery-jvectormap.css') }}">
 <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
 <link rel="stylesheet" href="{{ asset('/css/Managedeveloper.css') }}">
 @endpush
+
 <script>
 function openTab(tabName) {
     var i;
@@ -16,9 +24,89 @@ function openTab(tabName) {
 }
 </script>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card prod-p-card card-red">
+                <div class="card-body">
+                    <div class="row align-items-center mb-30">
+                        <div class="col">
+                            <h6 class="mb-5 text-white">Average Price</h6>
+                            <h3 class="mb-0 fw-700 text-white">$6,780</h3>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign text-green f-18"></i>
+                        </div>
+                    </div>
+                    <p class="mb-0 text-white"><span class="label label-success mr-10">+52%</span>From Previous Month
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card prod-p-card card-green">
+                <div class="card-body">
+                    <div class="row align-items-center mb-30">
+                        <div class="col">
+                            <h6 class="mb-5 text-white">Average Price</h6>
+                            <h3 class="mb-0 fw-700 text-white">$6,780</h3>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign text-green f-18"></i>
+                        </div>
+                    </div>
+                    <p class="mb-0 text-white"><span class="label label-success mr-10">+52%</span>From Previous Month
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card prod-p-card card-green">
+                <div class="card-body">
+                    <div class="row align-items-center mb-30">
+                        <div class="col">
+                            <h6 class="mb-5 text-white">Average Price</h6>
+                            <h3 class="mb-0 fw-700 text-white">$6,780</h3>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign text-green f-18"></i>
+                        </div>
+                    </div>
+                    <p class="mb-0 text-white"><span class="label label-success mr-10">+52%</span>From Previous Month
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card prod-p-card card-green">
+                <div class="card-body">
+                    <div class="row align-items-center mb-30">
+                        <div class="col">
+                            <h6 class="mb-5 text-white">Average Price</h6>
+                            <h3 class="mb-0 fw-700 text-white">$6,780</h3>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign text-green f-18"></i>
+                        </div>
+                    </div>
+                    <p class="mb-0 text-white"><span class="label label-success mr-10">+52%</span>From Previous Month
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- page statustic chart end -->
 
 
 
+
+
+
+
+        
+    </div>
+</div>
 
 <div class="container-fluid">
     <div class="page-header">
@@ -41,41 +129,27 @@ function openTab(tabName) {
                         <li class="breadcrumb-item">
                             <a href="#">wellfounded</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Manage Developers &nbsp&nbsp</li>
+                        <li class="breadcrumb-item active" aria-current="page">Manage Developers</li>
                         <div>
-                       
-                            <div class="collapse d-md-block display-options" id="displayOptions">
-                                <span class="mr-3 d-inline-block float-md-left dispaly-option-buttons">
-                                    <a href="#" class="mr-1 view-list active" onclick="openTab('Developer_Table')">
-                                        <i class="ik ik-menu view-icon"></i>
-                                    </a>
-                                   
-                                    <a href="#" class="mr-1 view-grid" onclick="openTab('Developer_Grid')">
-                                        <i class="ik ik-grid view-icon"></i>
-                                    </a>
-                                </span>
-
-                            </div>
-                           
+                            <ol style="padding: 0px;display: flex;margin-left: 1rem;background-color: #e9ecef;">
+                                <li class="breadcrumbb breadcrumbb-item">
+                                    <a href="#" onclick="openTab('Developer_Table')"><i class="ik ik-list"></i></a>
+                                </li>
+                                <li class="breadcrumbb breadcrumbb-item">
+                                    <a href="#" onclick="openTab('Developer_Grid')"><i class="ik ik-grid"></i></a>
+                                </li>
+                            </ol>
                         </div>
                     </ol>
-
-
                 </nav>
-
             </div>
         </div>
     </div>
     <div class="card  tab" id="Developer_Table">
 
-
         <div class="card-header d-block">
             <h3>{{ __('Default Ordering')}}</h3>
         </div>
-        
-
-
-
         <div class="card-body">
             <div class="dt-responsive">
                 <table id="order-table" class="table table-striped table-bordered nowrap">
@@ -1860,9 +1934,9 @@ function openTab(tabName) {
 
 
 
-    <div class="card tab" style="display:none; "    id="Developer_Grid">
+    <div class="card tab" style="display:none; " id="Developer_Grid">
 
-    <div class="card-header d-block">
+        <div class="card-header d-block">
             <h3>{{ __('Grid View')}}</h3>
         </div>
 
@@ -2047,7 +2121,6 @@ function openTab(tabName) {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
@@ -2083,7 +2156,6 @@ function openTab(tabName) {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
@@ -2308,10 +2380,17 @@ function openTab(tabName) {
     </div>
 </div>
 
+<!-- push external js -->
 @push('script')
-<script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
-<script src="{{ asset('js/datatables.js') }}"></script>
+
+        <script src="{{ asset('plugins/moment/moment.js') }}"></script>
+        <script src="{{ asset('plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+        <script src="{{ asset('plugins/jvectormap/jquery-jvectormap.min.js') }}"></script>
+        <script src="{{ asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+       
+        <script src="{{ asset('js/widgets.js') }}"></script>
+        <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+        <script src="{{ asset('js/datatables.js') }}"></script>
+
 @endpush
-
-
 @endsection

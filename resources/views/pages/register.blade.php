@@ -39,9 +39,7 @@
         if ($type == 'client') {
             $role = 4;
         }
-        if ($type == 'vender') {
-            $role = 5;
-        }
+        
     @endphp
     <div class="auth-wrapper">
         <div class="container-fluid h-100">

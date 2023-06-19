@@ -2,7 +2,8 @@
     <div class="sidebar-header">
         <a class="header-brand" href="{{route('dashboard')}}">
             <div class="logo-img">
-               <img height="35" src="{{ asset('img/Wellfounded_white.png')}}" class="header-brand-img" title="Wellfounded"> 
+                <img height="35" src="{{ asset('img/Wellfounded_white.png')}}" class="header-brand-img"
+                    title="Wellfounded">
             </div>
         </a>
         <div class="sidebar-action"><i class="ik ik-arrow-left-circle"></i></div>
@@ -13,29 +14,24 @@
         $segment1 = request()->segment(1);
         $segment2 = request()->segment(2);
     @endphp -->
-    
+
     <div class="sidebar-content">
         <div class="nav-container">
             <nav id="main-menu-navigation" class="navigation-main">
-                <div class="nav-item {{ ($segment2 == 'admin_wellfounded') ? 'active' : '' }}">
-                    <a href="{{url('/admin_wellfounded')}}"><i class="ik ik-bar-chart-2"></i><span> {{ __('Dashboard')}}</span></a>
-                   
+                <div class="nav-item {{ ($segment2 == 'developer_dashboard') ? 'active' : '' }}">
+                    <a href="{{url('/developer_dashboard')}}"><i class="ik ik-bar-chart-2"></i><span>
+                            {{ __('Dashboard')}}</span></a>
+
                 </div>
 
+                <div class="nav-item {{ ($segment1 == 'developer_taskboard') ? 'active' : '' }}">
+                    <a href="{{url('developer_taskboard')}}"><i class="ik ik-server"></i><span>{{ __('Taskboard')}}</span></a>
+                </div>
                 <!-- start inventory pages -->
-                 <div class="nav-item {{ ($segment1 == 'manage_developer') ? 'active' : '' }}">
-                    <a href="{{url('/manage_developer')}}"><i class="ik ik-users"></i><span>{{ __('Manage Developer')}}</span> </a>
-                </div>
-
-                <div class="nav-item {{ ($segment1 == 'manage_agency') ? 'active' : '' }}">
-                    <a href="{{url('/manage_agency')}}"><i class="ik ik-home"></i><span>{{ __('Manage Agency')}}</span> </a>
-                </div>
-                <div class="nav-item {{ ($segment1 == 'manage_client') ? 'active' : '' }}">
-                    <a href="{{url('/manage_client')}}"><i class="ik ik-briefcase"></i><span>{{ __('Manage Client')}}</span> </a>
-                </div>
 
 
-               <!-- 
+
+                <!-- 
                 
                <span class=" badge badge-success badge-right">{{ __('New')}}</span>     ====== bedge new
                
@@ -77,7 +73,7 @@
 
                 <!-- end inventory pages -->
 
-                
+
         </div>
     </div>
 </div>
