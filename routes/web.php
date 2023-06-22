@@ -27,9 +27,7 @@ Route::post('login', [LoginController::class, 'login']);
 Route::post('register', [RegisterController::class, 'register']);
 
 
-Route::get('password/forget',  function () {
-    return view('pages.forgot-password');
-})->name('password.forget');
+Route::get('password/forget',  function () { return view('pages.forgot-password');})->name('password.forget');
 Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
