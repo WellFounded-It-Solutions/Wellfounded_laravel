@@ -21,25 +21,27 @@ use App\Http\Controllers\PermissionController;
 |
 */
 
+include_once(base_path('routes/admin.php'));
+include_once(base_path('routes/agency.php'));
+include_once(base_path('routes/developer.php'));
+include_once(base_path('routes/client.php'));
+
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::post('register', [RegisterController::class, 'register']);
 
 
-Route::get('password/forget',  function () { return view('pages.forgot-password');})->name('password.forget');
+Route::get('password/forget',  function () {
+    return view('pages.forgot-password');
+})->name('password.forget');
 Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/',  [HomeController::class, 'index']);
 
-    Route::post('developer/onboarding',  [HomeController::class, 'developerOnboarding'])->name('developer.onboarding');
-
-    Route::post('agency/onboarding',  [HomeController::class, 'agencyOnboarding'])->name('agency.onboarding');
-    Route::post('clients/onboarding',  [HomeController::class, 'clientOnboarding'])->name('clients.onboarding');
 
 
     Route::get('/logout', [LoginController::class, 'logout']);
@@ -262,23 +264,19 @@ Route::get('/login-1', function () {
 
 
 
-//Super_admin Wellfounded routes
-Route::get('/admin_wellfounded', function () { return view('super_admin.dashboard'); });
-Route::get('/manage_developer', function () { return view('super_admin.manage_developer'); });
-Route::get('/manage_agency', function () { return view('super_admin.manage_agency'); });
-Route::get('/manage_client', function () { return view('super_admin.manage_client'); });
-
-
-//Agency Routes
-Route::get('/agency_dashboard', function () { return view('agency.dashboard'); });
-
-
-//Client Routes
-Route::get('/client_dashboard', function () { return view('clients.dashboard'); });
 
 
 
 
-//Developer Routes
-Route::get('/developer_dashboard', function () { return view('developer.dashboard'); });
-Route::get('/developer_taskboard', function () { return view('developer.taskboard'); });
+//Home
+Route::get('/',  [HomeController::class, 'index']);
+
+
+
+
+
+
+
+
+
+

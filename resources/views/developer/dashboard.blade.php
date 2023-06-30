@@ -13,24 +13,35 @@
 @endpush
 
 <script>
-function openTab(tabName) {
-    var i;
-    var x = document.getElementsByClassName("tab");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+    function openTab(tabName) {
+        var i;
+        var x = document.getElementsByClassName("tab");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
     }
-    document.getElementById(tabName).style.display = "block";
-}
 </script>
 
 <div class="container-fluid">
 
 
 
-
-
-
     <div class="row">
+
+        <div class="col-xl-12">
+            @if ($message = Session::get('danger'))
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @endif
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                {{ $message }}
+            </div>
+            @endif
+        </div>
+
         <div class="col-xl-3 col-md-6">
             <div class="card prod-p-card card-red">
                 <div class="card-body">
@@ -118,8 +129,7 @@ function openTab(tabName) {
                     </div>
                 </div>
                 <div class="card-body timeline">
-                    <div class="header bg-theme"
-                        style="background-image: url('../img/placeholder/placeimg_400_200_nature.jpg')">
+                    <div class="header bg-theme" style="background-image: url('../img/placeholder/placeimg_400_200_nature.jpg')">
                         <div class="color-overlay d-flex align-items-center">
                             <div class="day-number">8</div>
                             <div class="date-right">

@@ -1,6 +1,6 @@
 <div class="app-sidebar colored">
     <div class="sidebar-header">
-        <a class="header-brand" href="{{route('dashboard')}}">
+        <a class="header-brand" href="{{route('clients.dashboard')}}">
             <div class="logo-img">
                <img height="35" src="{{ asset('img/Wellfounded_white.png')}}" class="header-brand-img" title="Wellfounded"> 
             </div>
@@ -17,8 +17,8 @@
     <div class="sidebar-content">
         <div class="nav-container">
             <nav id="main-menu-navigation" class="navigation-main">
-                <div class="nav-item {{ ($segment2 == 'client_dashboard') ? 'active' : '' }}">
-                    <a href="{{url('/client_dashboard')}}"><i class="ik ik-bar-chart-2"></i><span> {{ __('Dashboard')}}</span></a>
+                <div class="nav-item {{ ($segment2 == 'client/dashboard') ? 'active' : '' }}">
+                    <a href="{{url('/client/dashboard')}}"><i class="ik ik-bar-chart-2"></i><span> {{ __('Dashboard')}}</span></a>
                    
                 </div>
 

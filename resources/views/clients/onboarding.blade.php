@@ -7,7 +7,7 @@
                     <h3>{{ __('Client Onboarding Form') }}</h3>
                 </div>
                 <div class="card-body">
-                    <form class="forms-sample" action="{{ route('clients.onboarding') }}" method="POST"
+                    <form class="forms-sample" action="{{ route('clients.onboardingPost') }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail3">{{ __('Website') }}</label>
                                     <input type="text" class="form-control" required
-                                        value="{{ auth()->user()->website }}" value="{{ old('website') }}" name="website"
+                                        value="{{ old('website',auth()->user()->website) }}" name="website"
                                         id="exampleInputEmail3" placeholder="Website">
                                 </div>
                             </div>
@@ -151,9 +151,10 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">{{ __('Location') }} </label>
-                                    <select class="form-control select2" required name="location">
-                                        <option value="location">{{ __('0 - 1 Years') }}</option>
-                                       
+                                    <select name="location" required class="form-control select2">
+                                        <option value="India">India</option>
+                                        <option value="USA">USA</option>
+                                        <option value="France">France</option>
                                     </select>
                                 </div>
                             </div>
@@ -216,7 +217,7 @@
                             <textarea class="form-control" id="exampleTextarea1" name="about" rows="4"> {{ old('about') }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">{{ __('Submit') }}</button>
-                        <button class="btn btn-light">{{ __('Cancel') }}</button>
+                        <button type="reset" class="btn btn-light">{{ __('Reset') }}</button>
                     </form>
                 </div>
             </div>

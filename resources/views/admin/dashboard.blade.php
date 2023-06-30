@@ -1,4 +1,4 @@
-@extends('super_admin.layout')
+@extends('admin.layout')
 @section('title', 'Dashboard')
 @section('content')
 

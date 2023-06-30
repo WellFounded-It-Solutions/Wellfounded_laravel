@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.partial')
 @section('content')
     <div class="row">
         <div class="col-xl-9 col-lg-9 col-md-9 m-auto">
@@ -7,7 +7,7 @@
                     <h3>{{ __('Developer Onboarding Form') }}</h3>
                 </div>
                 <div class="card-body">
-                    <form class="forms-sample" action="{{ route('developer.onboarding') }}" method="POST"
+                    <form class="forms-sample" action="{{ route('developer.onboardingPost') }}" method="POST"
                         enctype="multipart/form-data">
 
                         @csrf <div class="row">
@@ -92,7 +92,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">{{ __('Skills') }} </label>
-                                    <select class="form-control select2" name="skills" required multiple="multiple">
+                                    <select class="form-control select2" name="skills[]" required multiple="multiple">
                                         @foreach (getSkills() as $row)
                                             <option value="{{ $row->name }}"
                                                 {{ old('skills') == $row->name ? 'selected' : '' }}>{{ $row->name }}
@@ -105,7 +105,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">{{ __('experience') }} </label>
+                                    <label for="">{{ __('Experience') }} </label>
                                     <select class="form-control select2" required name="experience">
                                         <option  {{ old('experience') == '0 - 1 Years' ? 'selected' : '' }}>{{ __('0 - 1 Years') }}</option>
                                         <option  {{ old('experience') == '1 - 2 Years' ? 'selected' : '' }}>{{ __('1 - 2 Years') }}</option>
@@ -118,9 +118,18 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleInputSalary">{{ __('Salary Expectation') }}</label>
-                                    <input type="text" name="salary" value="{{ old('salary') }}" required
-                                        class="form-control" id="exampleInputSalary" placeholder="Salary">
+                                    <label for="exampleInputSalary">{{ __('Salary Expectation (Per Month)') }}</label>
+                                    <!-- <input type="text" name="" value="{{ old('salary') }}" required
+                                        class="form-control" id="salary" placeholder="Salary (per month)"> -->
+                                        <select class="form-control select2" required name="salary">
+                                        <option  {{ old('salary') == 'Less then 100000' ? 'selected' : '' }}>{{ __('Less then 100000') }}</option>
+                                        <option  {{ old('salary') == '1 lac to 2 lac' ? 'selected' : '' }}>{{ __('1 lac to 2 lac') }}</option>
+                                        <option  {{ old('salary') == '2 lac to 3 lac' ? 'selected' : '' }}>{{ __('2 lac to 3 lac') }}</option>
+                                        <option  {{ old('salary') == 'More then 3lac' ? 'selected' : '' }}>{{ __('More then 3lac') }}</option>
+
+                                    </select>
+
+
                                 </div>
                             </div>
                         </div>
@@ -129,14 +138,16 @@
                                 <div class="form-group">
                                     <label for="">{{ __('Location') }} </label>
                                     <select name="location" required class="form-control select2">
-                                        <option>{{ __('0 - 1 Years') }}</option>
-
+                                        <option value="India">India</option>
+                                        <option value="USA">USA</option>
+                                        <option value="France">France</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputSalary">{{ __('Country') }}</label>
+
                                     <input type="text" name="country" value="{{ old('country') }}" required
                                         class="form-control" id="exampleInputSalary" placeholder="Country">
                                 </div>
@@ -174,7 +185,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleTextarea1">{{ __('Textarea') }}</label>
+                            <label for="exampleTextarea1">{{ __('About Yourself') }}</label>
                             <textarea class="form-control" required name="remark" id="exampleTextarea1" rows="4">{{ old('remark') }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">{{ __('Submit') }}</button>

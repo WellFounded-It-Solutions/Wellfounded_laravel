@@ -1,6 +1,6 @@
 <div class="app-sidebar colored">
     <div class="sidebar-header">
-        <a class="header-brand" href="{{route('dashboard')}}">
+        <a class="header-brand" href="{{route('developer.dashboard')}}">
             <div class="logo-img">
                 <img height="35" src="{{ asset('img/Wellfounded_white.png')}}" class="header-brand-img"
                     title="Wellfounded">
@@ -18,14 +18,14 @@
     <div class="sidebar-content">
         <div class="nav-container">
             <nav id="main-menu-navigation" class="navigation-main">
-                <div class="nav-item {{ ($segment2 == 'developer_dashboard') ? 'active' : '' }}">
-                    <a href="{{url('/developer_dashboard')}}"><i class="ik ik-bar-chart-2"></i><span>
+                <div class="nav-item {{ ($segment2 == 'developer/dashboard') ? 'active' : '' }}">
+                    <a href="{{url('/developer/dashboard')}}"><i class="ik ik-bar-chart-2"></i><span>
                             {{ __('Dashboard')}}</span></a>
 
                 </div>
 
-                <div class="nav-item {{ ($segment1 == 'developer_taskboard') ? 'active' : '' }}">
-                    <a href="{{url('developer_taskboard')}}"><i class="ik ik-server"></i><span>{{ __('Taskboard')}}</span></a>
+                <div class="nav-item {{ ($segment1 == 'developer/taskboard') ? 'active' : '' }}">
+                    <a href="{{url('developer/taskboard')}}"><i class="ik ik-server"></i><span>{{ __('Taskboard')}}</span></a>
                 </div>
                 <!-- start inventory pages -->
 

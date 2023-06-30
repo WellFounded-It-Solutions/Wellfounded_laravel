@@ -14,18 +14,33 @@
 @endpush
 
 <script>
-function openTab(tabName) {
-    var i;
-    var x = document.getElementsByClassName("tab");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+    function openTab(tabName) {
+        var i;
+        var x = document.getElementsByClassName("tab");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
     }
-    document.getElementById(tabName).style.display = "block";
-}
 </script>
 
 <div class="container-fluid">
     <div class="row">
+
+        <div class="col-xl-12">
+            @if ($message = Session::get('danger'))
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @endif
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                {{ $message }}
+            </div>
+            @endif
+        </div>
+
+
         <div class="col-xl-3 col-md-6">
             <div class="card prod-p-card card-red">
                 <div class="card-body">
@@ -104,7 +119,7 @@ function openTab(tabName) {
 
 
 
-        
+
     </div>
 </div>
 
@@ -1949,9 +1964,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -1962,18 +1975,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -1985,9 +1995,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -1998,18 +2006,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2021,9 +2026,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -2034,18 +2037,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2057,9 +2057,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -2070,18 +2068,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2093,9 +2088,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -2106,18 +2099,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2128,9 +2118,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -2141,18 +2129,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2163,9 +2148,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -2176,18 +2159,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2199,9 +2179,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -2212,18 +2190,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2234,9 +2209,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -2247,18 +2220,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2270,9 +2240,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -2283,18 +2251,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2306,9 +2271,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -2319,18 +2282,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2342,9 +2302,7 @@ function openTab(tabName) {
                         <div class="card sale-card">
                             <div class="card-body text-center">
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
-                                    <div data-label="40%"
-                                        class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger"
-                                        style="margin: 0px;">
+                                    <div data-label="40%" class="radial-bar radial-bar-40 radial-bar-lg radial-bar-danger" style="margin: 0px;">
                                         <img src="../img/users/3.jpg" alt="User-Image">
                                     </div>
                                     <div>
@@ -2355,18 +2313,15 @@ function openTab(tabName) {
                                 <div class="badge badge-pill badge-dark">Dashboard</div>
                                 <div class="badge badge-pill badge-dark">UI</div>
                                 <div class="badge badge-pill badge-dark">UX</div>
-                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
-                                    title="3 more">+3</div>
+                                <div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="3 more">+3</div>
                             </div>
                             <div class="p-4 border-top mt-15">
                                 <div class="row text-center">
                                     <div class="col-6 border-right">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-message-square f-20 mr-5"></i>Message</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i
-                                                class="ik ik-box f-20 mr-5"></i>Portfolio</a>
+                                        <a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>
                                     </div>
                                 </div>
                             </div>
@@ -2383,14 +2338,14 @@ function openTab(tabName) {
 <!-- push external js -->
 @push('script')
 
-        <script src="{{ asset('plugins/moment/moment.js') }}"></script>
-        <script src="{{ asset('plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-        <script src="{{ asset('plugins/jvectormap/jquery-jvectormap.min.js') }}"></script>
-        <script src="{{ asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-       
-        <script src="{{ asset('js/widgets.js') }}"></script>
-        <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
-        <script src="{{ asset('js/datatables.js') }}"></script>
+<script src="{{ asset('plugins/moment/moment.js') }}"></script>
+<script src="{{ asset('plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+<script src="{{ asset('plugins/jvectormap/jquery-jvectormap.min.js') }}"></script>
+<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+
+<script src="{{ asset('js/widgets.js') }}"></script>
+<script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>
+<script src="{{ asset('js/datatables.js') }}"></script>
 
 @endpush
 @endsection

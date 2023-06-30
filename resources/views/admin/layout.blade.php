@@ -12,7 +12,7 @@
     	@include('include.header')
     	<div class="page-wrap">
 	    	<!-- initiate sidebar-->
-	    	@include('super_admin.super_admin_sidebar')
+	    	@include('admin.super_admin_sidebar')
 
 	    	<div class="main-content">
 	    		<!-- yeild contents here -->
