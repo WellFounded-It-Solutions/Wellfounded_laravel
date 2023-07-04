@@ -11,7 +11,7 @@ class DashboardController extends BaseController
     {
         $menu['menu'] = 'Dashboard';
 
-        return view('agency.dashboard');
+        return view('agency.dashboard', compact('menu'));
     }
 
 }

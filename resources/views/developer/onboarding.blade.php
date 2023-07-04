@@ -155,8 +155,23 @@
                         </div>
                         <div class="form-group">
                             <label>{{ __('Resume upload') }}</label>
-                            <input type="file" name="resume" class="file-upload-default">
+                            <input  accept="application/pdf" type="file" name="resume" class="file-upload-default">
                             @error('resume')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="input-group col-xs-12">
+                                <input  type="text" class="form-control file-upload-info" disabled
+                                    placeholder="Upload Image">
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary"
+                                        type="button">{{ __('Upload') }}</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ __('Portfolio upload') }}</label>
+                            <input accept="application/pdf" type="file" name="portfolio" class="file-upload-default">
+                            @error('portfolio')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="input-group col-xs-12">
@@ -168,10 +183,11 @@
                                 </span>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label>{{ __('Portfolio upload') }}</label>
-                            <input type="file" name="portfolio" class="file-upload-default">
-                            @error('portfolio')
+                            <label>{{ __('Profile Pic') }}</label>
+                            <input accept="image/png, image/gif, image/jpeg" type="file" name="profilePic" class="file-upload-default">
+                            @error('profilePic')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="input-group col-xs-12">

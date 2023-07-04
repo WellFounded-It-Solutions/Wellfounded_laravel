@@ -17,10 +17,18 @@
     <div class="sidebar-content">
         <div class="nav-container">
             <nav id="main-menu-navigation" class="navigation-main">
-                <div class="nav-item {{ ($segment2 == 'client/dashboard') ? 'active' : '' }}">
-                    <a href="{{url('/client/dashboard')}}"><i class="ik ik-bar-chart-2"></i><span> {{ __('Dashboard')}}</span></a>
-                   
+
+
+                <div class="nav-item {{ ($menu['menu'] == 'Dashboard') ? 'active' : '' }}">
+                    <a href="{{url('/clients/dashboard')}}"><i class="ik ik-bar-chart-2"></i><span> {{ __('Dashboard')}}</span></a>
                 </div>
+
+                 <!-- start inventory pages -->
+                 <div class="nav-item  {{ ($menu['menu'] == 'Post Requirements') ? 'active' : '' }}">
+                    <a href="{{url('/clients/post/requirement')}}"><i class="ik ik-list"></i><span>{{ __('Post Requirements')}}</span> </a>
+                </div>
+
+            
 
                 <!-- start inventory pages -->
                  

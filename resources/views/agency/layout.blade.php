@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
 <head>
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 	<title>@yield('title','') | Radmin - Laravel Admin Starter</title>
 	<!-- initiate head with meta tags, css and script -->
 	@include('include.head')

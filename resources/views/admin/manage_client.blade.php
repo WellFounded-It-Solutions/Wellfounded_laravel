@@ -66,18 +66,82 @@
             </div>
         </div>
     </div>
+
+    <div class="card  " style="margin-bottom: -4px !important;">
+        <div class="card-header d-block">
+            <h3>{{ __('Apply Filters')}}</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="location">{{ __('Location') }}</label>
+                        <select id="location" name="location[]" class="form-control select2" multiple>
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                            <option value="France">France</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="organizationSize">{{ __('Organisation Size') }}</label>
+                        <select id="organizationSize" name="organizationSize[]" class="form-control select2" multiple>
+                            <option value="0 - 10">{{ __('0 - 10') }}</option>
+                            <option value="11 - 50">{{ __('11 - 50') }}</option>
+                            <option value="51 - 200">{{ __('51 - 200') }}</option>
+                            <option value="201 - 500">{{ __('201 - 500') }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="organizationType">{{ __('Organisation type') }}</label>
+                        <select id="organizationType" name="organizationType[]" class="form-control select2" multiple>
+                            <option value="Self Employed">{{ __('Self Employed') }}</option>
+                            <option value="Sole Proprietorship">{{ __('Sole Proprietorship') }}</option>
+                            <option value="Privately Held">{{ __('Privately Held') }}</option>
+                            <option value="Partnership">{{ __('Partnership') }}</option>
+                            <option value="One Person Company">{{ __('One Person Company') }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="designation">{{ __('Designation') }}</label>
+                        <select id="designation" name="designation[]" class="form-control select2" multiple>
+
+                            <option value="Founder">Founder</option>
+                            <option value="Chief Executive Officer">Chief Executive Officer</option>
+                            <option value="Chief Technology Officer">Chief Technology Officer</option>
+                            <option value="Chief Technology Officer">Chief Technology Officer</option>
+                            <option value="Business Development">Business Development</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Freelancer">Freelancer</option>
+                            <option value="Consultant">Consultant</option>
+                        </select>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+
     <div class="card  tab" id="Developer_Table">
 
 
-        <div class="card-header d-block">
+        <!-- <div class="card-header d-block">
             <h3>{{ __('Manage Clients')}}</h3>
-        </div>
+        </div> -->
 
 
 
 
-        <div class="card-body">
-            <div class="dt-responsive">
+       <div class="card-body" style="padding-top: 0px;overflow:scroll">
+            <div class="dt-responsive" style="padding:15px">
                 <table id="order-table" class="table table-striped table-bordered nowrap">
                     <thead>
                         <tr>
@@ -88,7 +152,6 @@
                             <th>{{ __('Organization Type')}}</th>
                             <th>{{ __('Organization Size')}}</th>
                             <th>{{ __('Location')}}</th>
-                            <th>{{ __('Added on')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,11 +164,6 @@
                             <td>{{ $user->organizationType}}</td>
                             <td>{{ $user->organizationSize}}</td>
                             <td>{{ $user->location}}</td>
-                            <td>
-                                <?php $timestamp = strtotime($user->created_at);
-                                $formattedDate = date("d-M-Y h:i A", $timestamp);
-                                echo ($formattedDate); ?>
-                            </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -120,14 +178,14 @@
 
     <div class="card tab" style="display:none; " id="Developer_Grid">
 
-        <div class="card-header d-block">
+        <!-- <div class="card-header d-block">
             <h3>{{ __('Grid View')}}</h3>
-        </div>
+        </div> -->
 
 
         <div class="card-body">
             <div class="dt-responsive">
-                <div class="row">
+                <div class="row" id="gridView">
                     @foreach($users as $user)
                     <div class="col-md-4">
                         <div class="card sale-card">
@@ -167,6 +225,110 @@
         </div>
     </div>
 </div>
+
+
+
+<script>
+    $(document).ready(function() {
+
+        $('.select2').select2();
+        // Event listener for the filter elements
+        $('#location, #designation, #organizationSize, #organizationType').on('change', function() {
+            // Call the filterData function when any filter value changes
+            filterData();
+        });
+
+        // Function to perform the AJAX call and update the table
+        function filterData() {
+            // Retrieve the selected values from the filter elements
+            var location = $('#location').val();
+            var organizationSize = $('#organizationSize').val();
+            var organizationType = $('#organizationType').val();
+            var designation = $('#designation').val();
+
+            // Send the AJAX request to the server
+            $.ajax({
+                url: '/admin/clients-data', // Replace with your server-side route or URL
+                type: 'POST',
+                data: {
+                    location: location,
+                    organizationSize: organizationSize,
+                    organizationType: organizationType,
+                    designation: designation,
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    // Update the table with the filtered data
+                    console.log(response);
+                    var html = '';
+                    response.users.forEach(function(user) {
+                        html += '<tr>';
+                        html += '<td>' + user.name + '</td>';
+                        html += '<td>' + user.email + '</td>';
+                        html += '<td>' + user.mobile + '</td>';
+                        html += '<td>' + user.designation + '</td>';
+                        html += '<td>' + user.organizationType + '</td>';
+                        html += '<td>' + user.organizationSize + '</td>';
+                        html += '<td>' + user.location + '</td>';
+
+                        html += '</tr>';
+                    });
+                    $('#order-table tbody').html(html);
+
+                    var html2 = '';
+                    response.users.forEach(function(user) {
+                        html2 += '<div class="col-md-4">';
+                        html2 += '<div class="card sale-card">';
+                        html2 += '<div class="card-body text-center">';
+                        html2 += '<div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">';
+
+                        if (user.workingStatus == 'Open To Work') {
+                            html2 += ' <div data-label="40%" class="radial-bar radial-bar-100 radial-bar-lg radial-bar-success" style="margin: 0px;">';
+                        } else {
+                            html2 += ' <div data-label="40%" class="radial-bar radial-bar-100 radial-bar-lg radial-bar-danger" style="margin: 0px;">';
+                        }
+
+                        html2 += '<img src="{!! asset("") !!}' + user.portfolio + '" alt="User-Image">';
+
+                        html2 += '</div>';
+                        html2 += ' <div>';
+                        html2 += '<h4 class="mt-15 mb-0">' + user.name + '</h4>';
+
+                        html2 += '<a href="#">' + user.location + '</a>';
+                        html2 += '</div>';
+                        html2 += '</div>';
+
+
+                        html2 += '<div class="badge badge-pill badge-dark">' + user.organizationType + '</div>';
+                        html2 += '<div class="badge badge-pill badge-dark">' + user.organizationSize + '</div>';
+                        html2 += '</div>';
+                        html2 += '<div class="p-4 border-top mt-15">';
+
+                        html2 += '<div class="row text-center">';
+                        html2 += ' <div class="col-6 border-right">';
+                        html2 += '<a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>';
+                        html2 += '</div>';
+                        html2 += '<div class="col-6">';
+                        html2 += '<a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>';
+                        html2 += '</div>';
+                        html2 += '</div>';
+                        html2 += '</div>';
+                        html2 += '</div>';
+                        html2 += '</div>';
+                    });
+                    $('#gridView').html(html2);
+                },
+
+                error: function(xhr, status, error) {
+                    // Handle the error if any
+                    console.error(error);
+                }
+            });
+        }
+    });
+</script>
 
 @push('script')
 <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>

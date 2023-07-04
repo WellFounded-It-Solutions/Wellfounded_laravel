@@ -73,92 +73,92 @@
         </div>
 
         <div class="card-body">
-        <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="workingStatus_filter">{{ __('Working Status') }}</label>
-                <select id="workingStatus_filter" name="workingStatus[]" class="form-control select2" multiple>
-                    <option value="Open To Work">Open To Work</option>
-                    <option value="Hired">Hired</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="form-group">
-                <label for="skills_filter">{{ __('Skills') }}</label>
-                <select  id="skills_filter" name="skills[]" class="form-control select2" multiple>
-                    @foreach (getSkills() as $row)
-                    <option value="{{ $row->name }}" {{ old('skills') == $row->name ? 'selected' : '' }}>{{ $row->name }}
-                    </option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="form-group">
-                <label for="empType_filter">{{ __('Employement Type') }}</label>
-                <select id="empType_filter" name="employementType[]" class="form-control select2" multiple>
-                    <option {{ old('employementType') == 'Freelancer' ? 'selected' : '' }}>
-                        {{ __('Freelancer') }}
-                    </option>
-                    <option {{ old('employementType') == 'Full Time' ? 'selected' : '' }}>
-                        {{ __('Full Time') }}
-                    </option>
-                    <option {{ old('employementType') == 'Part Time' ? 'selected' : '' }}>
-                        {{ __('Part Time') }}
-                    </option>
-                    <option {{ old('employementType') == 'Contract Basic' ? 'selected' : '' }}>
-                        {{ __('Contract Basic') }}
-                    </option>
-                    <option {{ old('employementType') == 'Other' ? 'selected' : '' }}>
-                        {{ __('Other') }}
-                    </option>
-                </select>
-            </div>
-        </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="workingStatus_filter">{{ __('Working Status') }}</label>
+                        <select id="workingStatus_filter" name="workingStatus[]" class="form-control select2" multiple>
+                            <option value="Open To Work">Open To Work</option>
+                            <option value="Hired">Hired</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="skills_filter">{{ __('Skills') }}</label>
+                        <select id="skills_filter" name="skills[]" class="form-control select2" multiple>
+                            @foreach (getSkills() as $row)
+                            <option value="{{ $row->name }}" {{ old('skills') == $row->name ? 'selected' : '' }}>{{ $row->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="empType_filter">{{ __('Employement Type') }}</label>
+                        <select id="empType_filter" name="employementType[]" class="form-control select2" multiple>
+                            <option {{ old('employementType') == 'Freelancer' ? 'selected' : '' }}>
+                                {{ __('Freelancer') }}
+                            </option>
+                            <option {{ old('employementType') == 'Full Time' ? 'selected' : '' }}>
+                                {{ __('Full Time') }}
+                            </option>
+                            <option {{ old('employementType') == 'Part Time' ? 'selected' : '' }}>
+                                {{ __('Part Time') }}
+                            </option>
+                            <option {{ old('employementType') == 'Contract Basic' ? 'selected' : '' }}>
+                                {{ __('Contract Basic') }}
+                            </option>
+                            <option {{ old('employementType') == 'Other' ? 'selected' : '' }}>
+                                {{ __('Other') }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
 
-        <div class="col-md-2">
-            <div class="form-group">
-                <label for="experience_filter">{{ __('Experience') }}</label>
-                <select id="experience_filter" name="experience[]" class="form-control select2" multiple>
-                    <!-- Options for the Salary filter -->
-                    <option {{ old('experience') == '0 - 1 Years' ? 'selected' : '' }}>{{ __('0 - 1 Years') }}</option>
-                    <option {{ old('experience') == '1 - 2 Years' ? 'selected' : '' }}>{{ __('1 - 2 Years') }}</option>
-                    <option {{ old('experience') == '2 - 3 Years' ? 'selected' : '' }}>{{ __('2 - 3 Years') }}</option>
-                    <option {{ old('experience') == '3 - 5 Years' ? 'selected' : '' }}>{{ __('3 - 5 Years') }}</option>
-                    <option {{ old('experience') == '5 - 7 Years' ? 'selected' : '' }}>{{ __('5 - 7 Years') }}</option>
-                    <option {{ old('experience') == '7 - 9 Years' ? 'selected' : '' }}>{{ __('7 - 9 Years') }}</option>
-                    <!-- Add more options as needed -->
-                </select>
-            </div>
-        </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="experience_filter">{{ __('Experience') }}</label>
+                        <select id="experience_filter" name="experience[]" class="form-control select2" multiple>
+                            <!-- Options for the Salary filter -->
+                            <option {{ old('experience') == '0 - 1 Years' ? 'selected' : '' }}>{{ __('0 - 1 Years') }}</option>
+                            <option {{ old('experience') == '1 - 2 Years' ? 'selected' : '' }}>{{ __('1 - 2 Years') }}</option>
+                            <option {{ old('experience') == '2 - 3 Years' ? 'selected' : '' }}>{{ __('2 - 3 Years') }}</option>
+                            <option {{ old('experience') == '3 - 5 Years' ? 'selected' : '' }}>{{ __('3 - 5 Years') }}</option>
+                            <option {{ old('experience') == '5 - 7 Years' ? 'selected' : '' }}>{{ __('5 - 7 Years') }}</option>
+                            <option {{ old('experience') == '7 - 9 Years' ? 'selected' : '' }}>{{ __('7 - 9 Years') }}</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                </div>
 
-        <div class="col-md-2">
-            <div class="form-group">
-                <label for="salary_filter">{{ __('Salary') }}</label>
-                <select class="form-control select2" id="salary_filter" multiple name="salary">
-                    <option {{ old('salary') == 'Less then 100000' ? 'selected' : '' }}>{{ __('Less then 100000') }}</option>
-                    <option {{ old('salary') == '1 lac to 2 lac' ? 'selected' : '' }}>{{ __('1 lac to 2 lac') }}</option>
-                    <option {{ old('salary') == '2 lac to 3 lac' ? 'selected' : '' }}>{{ __('2 lac to 3 lac') }}</option>
-                    <option {{ old('salary') == 'More then 3lac' ? 'selected' : '' }}>{{ __('More then 3lac') }}</option>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="salary_filter">{{ __('Salary') }}</label>
+                        <select class="form-control select2" id="salary_filter" multiple name="salary">
+                            <option {{ old('salary') == 'Less then 100000' ? 'selected' : '' }}>{{ __('Less then 100000') }}</option>
+                            <option {{ old('salary') == '1 lac to 2 lac' ? 'selected' : '' }}>{{ __('1 lac to 2 lac') }}</option>
+                            <option {{ old('salary') == '2 lac to 3 lac' ? 'selected' : '' }}>{{ __('2 lac to 3 lac') }}</option>
+                            <option {{ old('salary') == 'More then 3lac' ? 'selected' : '' }}>{{ __('More then 3lac') }}</option>
 
-                </select>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-        </div>
-    </div>
 
 
 
-  
+
 
     <div class="card  tab" id="Developer_Table">
         <!-- <div class="card-header d-block">
             <h3>{{ __('Manage Developers')}}</h3>
         </div> -->
 
-        <div class="card-body" style="padding-top: 0px;overflow:scroll" >
+        <div class="card-body" style="padding-top: 0px;overflow:scroll">
 
 
             <div class="dt-responsive" style="padding:15px">
@@ -200,53 +200,6 @@
 
 
 
-    <!-- Include the necessary jQuery library -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
-    <script>
-        $(document).ready(function() {
-
-            $('.select2').select2();
-            // Event listener for the filter elements
-            $('#workingStatus_filter, #skills_filter, #empType_filter, #experience_filter, #salary_filter').on('change', function() {
-                // Call the filterData function when any filter value changes
-                filterData();
-            });
-
-            // Function to perform the AJAX call and update the table
-            function filterData() {
-                // Retrieve the selected values from the filter elements
-                var workingStatus = $('#workingStatus_filter').val();
-                var skills = $('#skills_filter').val();
-                var employementType = $('#empType_filter').val();
-                var experience = $('#experience_filter').val();
-                var salary = $('#salary_filter').val();
-                // Get other filter values as needed
-
-                // Send the AJAX request to the server
-                $.ajax({
-                    url: '/filter-data', // Replace with your server-side route or URL
-                    type: 'GET',
-                    data: {
-                        workingStatus: workingStatus,
-                        skills: skills,
-                        employementType: employementType,
-                        experience: experience,
-                        salary: salary,
-                        // Add other filter parameters
-                    },
-                    success: function(response) {
-                        // Update the table with the filtered data
-                        $('#order-table tbody').html(response);
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle the error if any
-                        console.error(error);
-                    }
-                });
-            }
-        });
-    </script>
 
 
 
@@ -263,7 +216,7 @@
 
         <div class="card-body">
             <div class="dt-responsive">
-                <div class="row">
+                <div class="row" id="gridView">
                     @foreach($users as $user)
                     <div class="col-md-4">
                         <div class="card sale-card">
@@ -280,7 +233,7 @@
 
                                 <div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">
                                     <div data-label="40%" class="radial-bar radial-bar-100 radial-bar-lg @if($user->workingStatus  != 'Open To Work') radial-bar-danger @else radial-bar-success @endif" style="margin: 0px;">
-                                        <img src="{{asset('')}}{{$user->portfolio}}" alt="User-Image">
+                                        <img src="{{asset('')}}{{$user->profilePic}}" alt="User-Image">
                                         <!-- ../img/users/3.jpg -->
                                     </div>
                                     <div>
@@ -336,6 +289,140 @@
         </div>
     </div>
 </div>
+
+<!-- Include the necessary jQuery library -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<script>
+    $(document).ready(function() {
+
+        $('.select2').select2();
+        // Event listener for the filter elements
+        $('#workingStatus_filter, #skills_filter, #empType_filter, #experience_filter, #salary_filter').on('change', function() {
+            // Call the filterData function when any filter value changes
+            filterData();
+        });
+
+        // Function to perform the AJAX call and update the table
+        function filterData() {
+            // Retrieve the selected values from the filter elements
+            var workingStatus = $('#workingStatus_filter').val();
+            var skills = $('#skills_filter').val();
+            var employementType = $('#empType_filter').val();
+            var experience = $('#experience_filter').val();
+            var salary = $('#salary_filter').val();
+            // Get other filter values as needed
+
+            // Send the AJAX request to the server
+            $.ajax({
+                url: '/admin/developer-data', // Replace with your server-side route or URL
+                type: 'POST',
+                data: {
+                    workingStatus: workingStatus,
+                    skills: skills,
+                    employementType: employementType,
+                    experience: experience,
+                    salary: salary,
+                    // Add other filter parameters
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    // Update the table with the filtered data
+                    console.log(response);
+                    var html = '';
+                    response.users.forEach(function(user) {
+                        html += '<tr>';
+                        html += '<td>' + user.name + '</td>';
+                        html += '<td>' + user.email + '</td>';
+                        html += '<td>' + user.mobile + '</td>';
+                        html += '<td>' + user.experience + '</td>';
+                        html += '<td>' + user.salary + '</td>';
+                        html += '<td>' + user.skills + '</td>';
+                        html += '<td>' + user.workingStatus + '</td>';
+                        html += '<td>' + user.employementType + '</td>';
+                        html += '<td>' + user.currentStatus + '</td>';
+                        html += '</tr>';
+                    });
+                    $('#order-table tbody').html(html);
+
+                    var html2 = '';
+                    response.users.forEach(function(user) {
+                        html2 += '<div class="col-md-4">';
+                        html2 += '<div class="card sale-card">';
+                        html2 += '<div class="card-body text-center">';
+                        html2 += '<div class="profile-pic mb-20" style=" display: flex;column-gap: 10px;">';
+
+                        if (user.workingStatus == 'Open To Work') {
+                            html2 += ' <div data-label="40%" class="radial-bar radial-bar-100 radial-bar-lg radial-bar-success" style="margin: 0px;">';
+                        } else {
+                            html2 += ' <div data-label="40%" class="radial-bar radial-bar-100 radial-bar-lg radial-bar-danger" style="margin: 0px;">';
+                        }
+
+                        html2 += '<img src="{!! asset("") !!}'+user.profilePic+'" alt="User-Image">';
+
+                        html2 += '</div>';
+                        html2 += ' <div>';
+                        html2 += '<h4 class="mt-15 mb-0">' + user.name + '</h4>';
+
+                        html2 += '<a href="#">' + user.experience + '</a>';
+                        html2 += '</div>';
+                        html2 += '</div>';
+
+
+                        var skills = user.skills;
+
+                        // Split the string into an array using the comma as the delimiter
+                        var skillArray = skills.split(",");
+                        var count = 0;
+                        // Initialize a variable to track the count of additional skills
+                        var additionalSkillsCount = 0;
+
+                        // Loop through the skills array and generate the HTML code
+                        skillArray.forEach(function(skill) {
+                            // Trim any whitespace around the skill
+                            skill = skill.trim();
+
+                            if (count < 3) {
+                                html2 += '<div class="badge badge-pill badge-dark">' + skill + '</div>';
+                            }
+                            count++;
+                        });
+
+                        // Check if there are additional skills beyond the displayed ones
+                        if (skillArray.length > 3) {
+                            additionalSkillsCount = skillArray.length - 3;
+                            html2 += '<div class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="' + additionalSkillsCount + ' more">+' + additionalSkillsCount + '</div>';
+                        }
+
+                        html2 += '</div>';
+                        html2 += '<div class="p-4 border-top mt-15">';
+
+                        html2 += '<div class="row text-center">';
+                        html2 += ' <div class="col-6 border-right">';
+                        html2 += '<a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-message-square f-20 mr-5"></i>Message</a>';
+                        html2 += '</div>';
+                        html2 += '<div class="col-6">';
+                        html2 += '<a href="#" class="link d-flex align-items-center justify-content-center"><i class="ik ik-box f-20 mr-5"></i>Portfolio</a>';
+                        html2 += '</div>';
+                        html2 += '</div>';
+                        html2 += '</div>';
+                        html2 += '</div>';
+                        html2 += '</div>';
+                    });
+                    $('#gridView').html(html2);
+                },
+
+                error: function(xhr, status, error) {
+                    // Handle the error if any
+                    console.error(error);
+                }
+            });
+        }
+    });
+</script>
+
 
 @push('script')
 <script src="{{ asset('plugins/DataTables/datatables.min.js') }}"></script>

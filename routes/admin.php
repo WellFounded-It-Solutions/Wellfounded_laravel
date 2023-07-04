@@ -12,10 +12,13 @@ Route::group(['middleware' => 'role:1'], function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
         Route::get('/manage-developer', [DeveloperController::class, 'index'])->name('admin.manage_developers');
-
+        Route::post('/developer-data', [DeveloperController::class, 'filter'])->name('admin.developersFilter');
+        
         Route::get('/manage-agency', [AgencyController::class, 'index'])->name('admin.manage_agency');
+        Route::post('/agency-data', [AgencyController::class, 'filter'])->name('admin.agencyFilter');
 
         Route::get('/manage-client', [ClientController::class, 'index'])->name('admin.manage_client');
+        Route::post('/clients-data', [ClientController::class, 'filter'])->name('admin.clientFilter');
       
        
     });
