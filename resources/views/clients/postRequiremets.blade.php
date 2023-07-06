@@ -18,14 +18,26 @@
                         </div>
 
 
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="description">{{ __('Job Description') }}</label>
+                                <textarea class="form-control" required name="description" id="description" rows="4">{{ old('description') }}</textarea>
+                            </div>
+                        </div>
+
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="noOfDevelopers">{{ __('Number of developers') }}</label>
                                 <input type="number" min="0" class="form-control" required value="{{ old('noOfDevelopers')}}" name="noOfDevelopers" id="noOfDevelopers" placeholder="No. of developers">
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">{{ __('Experience') }} </label>
@@ -45,8 +57,33 @@
                                 <input type="number" min="0" class="form-control" required value="{{ old('budget')}}" name="budget" id="budget" placeholder="Budget">
                             </div>
                         </div>
-
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="duration">{{ __('Duration') }}</label>
+                                <select class="form-control" required name="duration">
+                                    <option {{ old('duration') == '1 Month' ? 'selected' : '' }}>
+                                        {{ __('1 Month') }}
+                                    </option>
+                                    <option {{ old('duration') == '1 - 3 Months' ? 'selected' : '' }}>
+                                        {{ __('1 - 3 Months') }}
+                                    </option>
+                                    <option {{ old('duration') == '3 - 6 Months' ? 'selected' : '' }}>
+                                        {{ __('3 - 6 Months') }}
+                                    </option>
+                                    <option {{ old('duration') == '6 - 12 Months' ? 'selected' : '' }}>
+                                        {{ __('6 - 12 Months') }}
+                                    </option>
+                                    <option {{ old('duration') == 'More then 12 Months' ? 'selected' : '' }}>
+                                        {{ __('More then 12 Months') }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+
+                    <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">{{ __('Primary Skills') }} </label>
                                 <select class="form-control select2" name="skills[]" required multiple="multiple">
@@ -60,11 +97,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="secondarySkills">{{ __('Secondary Skills') }}</label>
-                                <input type="text" id="tags" class="form-control"  value="{{ old('secondarySkills')}}" name="secondarySkills" placeholder="Secondary Skills">
+                                <input type="text" id="tags" class="form-control" value="{{ old('secondarySkills')}}" name="secondarySkills" placeholder="Secondary Skills">
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="developerType">{{ __('Developer Type') }}</label>
@@ -99,38 +135,10 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="duration">{{ __('Duration') }}</label>
-                                <select class="form-control" required name="duration">
-                                    <option {{ old('duration') == '1 Month' ? 'selected' : '' }}>
-                                        {{ __('1 Month') }}
-                                    </option>
-                                    <option {{ old('duration') == '1 - 3 Months' ? 'selected' : '' }}>
-                                        {{ __('1 - 3 Months') }}
-                                    </option>
-                                    <option {{ old('duration') == '3 - 6 Months' ? 'selected' : '' }}>
-                                        {{ __('3 - 6 Months') }}
-                                    </option>
-                                    <option {{ old('duration') == '6 - 12 Months' ? 'selected' : '' }}>
-                                        {{ __('6 - 12 Months') }}
-                                    </option>
-                                    <option {{ old('duration') == 'More then 12 Months' ? 'selected' : '' }}>
-                                        {{ __('More then 12 Months') }}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
 
 
 
 
-                    <div class="form-group">
-                        <label for="description">{{ __('Job Description') }}</label>
-                        <textarea class="form-control" required name="description" id="description" rows="4">{{ old('description') }}</textarea>
-                    </div>
 
 
 

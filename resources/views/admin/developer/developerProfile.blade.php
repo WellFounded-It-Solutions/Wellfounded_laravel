@@ -430,13 +430,15 @@
                                             <form class="forms-sample" action="{{route('admin.storeEducation')}}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{$user->id}}" id="">
-                                                <div class="form-group">
-                                                    <label for="education_title">Course Title</label>
-                                                    <input type="text" required class="form-control" id="education_title" name="education_title">
-                                                </div>
+                                                
                                                 <div class="form-group">
                                                     <label for="institute_name">Institute Name</label>
                                                     <input type="text" required class="form-control" id="institute_name" name="institute_name">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="education_title">Course Title</label>
+                                                    <input type="text" required class="form-control" id="education_title" name="education_title">
                                                 </div>
 
                                                 <div class="form-group">
@@ -579,15 +581,17 @@
                                                     @csrf
                                                     <input type="hidden" name="user_id" value="{{$user->id}}" id="">
                                                     <input type="hidden" name="id" value="{{$education->id}}" id="">
-                                                    <div class="form-group">
-                                                        <label for="education_title">Course Title</label>
-                                                        <input type="text" required class="form-control" id="education_title" value="{{$education->education_title}}" name="education_title">
-                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="institute_name">Institute Name</label>
                                                         <input type="text" required class="form-control" id="institute_name" value="{{$education->institute_name}}" name="institute_name">
                                                     </div>
 
+                                                    <div class="form-group">
+                                                        <label for="education_title">Course Title</label>
+                                                        <input type="text" required class="form-control" id="education_title" value="{{$education->education_title}}" name="education_title">
+                                                    </div>
+                                                 
 
                                                     <div class="form-group">
                                                         <label for="course_name">Course Name</label>
@@ -729,18 +733,18 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1" style="text-align:right">
-                                                    <a href="#" data-toggle="modal" data-target="#deleteModal3_{{$experience->id}}">
+                                                    <a href="#" data-toggle="modal" data-target="#deleteModal3_{{$certification->id}}">
                                                         <i class="trash ik ik-trash"></i>
                                                     </a>
 
                                                 </div>
 
                                                 <!-- Delete Confirmation Modal -->
-                                                <div class="modal fade" id="deleteModal3_{{$experience->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel_{{$experience->id}}" aria-hidden="true">
+                                                <div class="modal fade" id="deleteModal3_{{$certification->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel_{{$certification->id}}" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="deleteModalLabel_{{$experience->id}}">Confirmation</h5>
+                                                                <h5 class="modal-title" id="deleteModalLabel_{{$certification->id}}">Confirmation</h5>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
@@ -811,9 +815,9 @@
                                 </div>
 
                                 <script>
-                                    checkbox = document.querySelector('#checkbox1_{!! $experience->id !!}');
-                                    resignDateField = document.querySelector('#resignDateField_{!! $experience->id !!}');
-                                    resignDateInput = document.querySelector('#resign_date_{!! $experience->id !!}');
+                                    checkbox = document.querySelector('#checkbox1_{!! $certification->id !!}');
+                                    resignDateField = document.querySelector('#resignDateField_{!! $certification->id !!}');
+                                    resignDateInput = document.querySelector('#resign_date_{!! $certification->id !!}');
 
                                     checkbox.addEventListener('change', function() {
                                         if (this.checked) {

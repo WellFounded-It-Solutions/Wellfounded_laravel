@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\agency;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\admin\BaseController;
 use Illuminate\Http\Request;
-use App\Models\DeveloperCertification;
+use App\Models\AgencySkill;
 
-class DeveloperCertificationController extends Controller
+class AgencySkillController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -37,17 +37,16 @@ class DeveloperCertificationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'issuing_organisation' => 'required',
-            'issuing_date' => 'required',
+            'skill_name' => 'required',
+            'noOfDevelopers' => 'required',
             'user_id' => 'required',
         ]);
 
 
         $input = $request->all();
 
-        DeveloperCertification::create($input);
-        return redirect()->route('admin.developerProfile', $request->user_id)->with('success', 'Certification created successfully.');
+        AgencySkill::create($input);
+        return redirect()->route('admin.agencyProfile', $request->user_id)->with('success', 'Skill set created successfully.');
     }
 
 
@@ -56,29 +55,27 @@ class DeveloperCertificationController extends Controller
         $certification_id = $request->id;
 
         // Find the experience entry to be deleted
-        $experience = DeveloperCertification::findOrFail($certification_id);
+        $experience = AgencySkill::findOrFail($certification_id);
         $experience->delete();
 
-        return back()->with('danger', 'Certification deleted successfully.');
+        return back()->with('danger', 'Skill set deleted successfully.');
     }
 
-    public function updateCertification(Request $request)
+    public function updateSkills(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'issuing_organisation' => 'required',
-            'issuing_date' => 'required',
+            'skill_name' => 'required',
+            'noOfDevelopers' => 'required',
             'user_id' => 'required',
         ]);
 
         $input = $request->all();
     
 
-        $certification = DeveloperCertification::findOrFail($request->id);
+        $certification = AgencySkill::findOrFail($request->id);
         $certification->update($input);
         
-    
-        return redirect()->route('admin.developerProfile', $request->user_id)->with('success', 'Certification updated successfully.');
+        return back()->with('success', 'Skill set updated successfully.');
     }
 
 

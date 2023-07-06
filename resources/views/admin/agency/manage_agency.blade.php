@@ -108,7 +108,7 @@
                     </div>
                 </div>
 
-             
+
 
             </div>
         </div>
@@ -142,7 +142,11 @@
                     <tbody>
                         @foreach($users as $user)
                         <tr>
-                            <td>{{$user->name}}</td>
+                            <td>
+                                <a href="{{route('admin.agencyProfile', $user->id)}}">
+                                    {{$user->name}}
+                                </a>
+                            </td>
                             <td>{{ $user->email}}</td>
                             <td>{{ $user->mobile}}</td>
                             <td>{{ $user->location}}</td>
@@ -247,7 +251,7 @@
                     var html = '';
                     response.users.forEach(function(user) {
                         html += '<tr>';
-                        html += '<td>' + user.name + '</td>';
+                        html += '<td><a href="/admin/agency/profile/'+user.id+'">' + user.name + '</a></td>';
                         html += '<td>' + user.email + '</td>';
                         html += '<td>' + user.mobile + '</td>';
                         html += '<td>' + user.location + '</td>';

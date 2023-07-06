@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\admin\DashboardController;
-use App\Http\Controllers\admin\DeveloperController;
-use App\Http\Controllers\admin\DeveloperExperienceController;
-use App\Http\Controllers\admin\DeveloperCertificationController;
-use App\Http\Controllers\admin\DeveloperEducationController;
+use App\Http\Controllers\admin\developer\DeveloperController;
+use App\Http\Controllers\admin\developer\DeveloperExperienceController;
+use App\Http\Controllers\admin\developer\DeveloperCertificationController;
+use App\Http\Controllers\admin\developer\DeveloperEducationController;
 
-use App\Http\Controllers\admin\AgencyController;
+use App\Http\Controllers\admin\agency\AgencyController;
+use App\Http\Controllers\admin\agency\AgencySkillController;
+
 use App\Http\Controllers\admin\ClientController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +41,24 @@ Route::group(['middleware' => 'role:1'], function () {
         
         Route::get('/manage-agency', [AgencyController::class, 'index'])->name('admin.manage_agency');
         Route::post('/agency-data', [AgencyController::class, 'filter'])->name('admin.agencyFilter');
+
+        Route::get('/agency/profile/update', [AgencyController::class, 'updateAgencyProfile'])->name('admin.updateAgencyProfile');
+        Route::post('/agency/profile/update', [AgencyController::class, 'agencyOnboardingPost'])->name('admin.agencyOnboardingPost');
+        Route::get('/agency/profile/{userID}', [AgencyController::class, 'agencyProfile'])->name('admin.agencyProfile');
+
+        
+        Route::post('/agency/store/skills', [AgencySkillController::class, 'store'])->name('admin.storeSkills');
+        Route::get('/agency/delete/skills', [AgencySkillController::class, 'delete'])->name('admin.deleteAgencySkill');
+        Route::post('/agency/update/skills', [AgencySkillController::class, 'updateSkills'])->name('admin.updateSkills');
+        
+
+        Route::post('/agency/store/images', [AgencyController::class, 'storeImages'])->name('admin.storeImages');
+        Route::get('/agency/delete/images', [AgencyController::class, 'deleteImages'])->name('admin.deleteImage');
+        
+
+        
+        Route::post('/agency/store/documents', [AgencyController::class, 'storeDocuments'])->name('admin.storeDocuments');
+        Route::get('/agency/delete/documents', [AgencyController::class, 'deleteDocuments'])->name('admin.deleteDocument');
 
         Route::get('/manage-client', [ClientController::class, 'index'])->name('admin.manage_client');
         Route::post('/clients-data', [ClientController::class, 'filter'])->name('admin.clientFilter');

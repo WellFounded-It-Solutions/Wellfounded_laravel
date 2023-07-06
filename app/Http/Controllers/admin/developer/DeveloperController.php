@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\developer;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\admin\BaseController;
 use App\Models\DeveloperCertification;
 use App\Models\DeveloperEducation;
 use App\Models\DeveloperExperience;
 use App\Models\DeveloperOnboarding;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Exception;
-use Illuminate\Support\Facades\Validator;
-use DB;
-use Mockery\Undefined;
+
 
 class DeveloperController extends BaseController
 {

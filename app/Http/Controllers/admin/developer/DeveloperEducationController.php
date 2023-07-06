@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\developer;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\admin\BaseController;
 use Illuminate\Http\Request;
 use App\Models\DeveloperEducation;
 
-class DeveloperEducationController extends Controller
+class DeveloperEducationController extends BaseController
 {
     /**
      * Display a listing of the resource.

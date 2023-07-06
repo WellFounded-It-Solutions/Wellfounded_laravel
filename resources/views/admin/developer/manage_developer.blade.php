@@ -338,7 +338,7 @@
                     var html = '';
                     response.users.forEach(function(user) {
                         html += '<tr>';
-                        html += '<td>' + user.name + '</td>';
+                        html += '<td><a href="/admin/developer/profile/'+user.id+'">' + user.name + '</a></td>';
                         if(user.added_by != 0){
                             html += '<td>' + user.email + '</td>';
                         }else{

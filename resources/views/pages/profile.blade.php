@@ -84,7 +84,8 @@
                                     <div class="sl-item">
                                         <div class="sl-left"> <img src="../img/users/1.jpg" alt="user" class="rounded-circle" /> </div>
                                         <div class="sl-right">
-                                            <div><a href="javascript:void(0)" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
+                                            <div>
+                                                <a href="javascript:void(0)" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
                                                 <p>assign a new task <a href="javascript:void(0)"> Design weblayout</a></p>
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-6 mb-20"><img src="../img/big/img2.jpg" class="img-fluid rounded" /></div>

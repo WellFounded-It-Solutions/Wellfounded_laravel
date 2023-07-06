@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\developer;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\admin\BaseController;
 use App\Models\DeveloperExperience;
 use Illuminate\Http\Request;
 
