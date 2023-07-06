@@ -179,8 +179,12 @@
                     <tbody>
                         @foreach($users as $user)
                         <tr>
-                            <td>{{$user->name}}</td>
-                            <td>{{ $user->email}}</td>
+                            <td>
+                            <a href="{{route('admin.developerProfile', $user->id)}}">
+                                {{$user->name}}
+                            </a>
+                            </td>
+                            <td>@if($user->added_by != 0) {{ $user->email}} @else Null @endif</td>
                             <td>{{ $user->mobile}}</td>
                             <td>{{ $user->experience}}</td>
                             <td>{{ $user->salary}}</td>
@@ -335,7 +339,12 @@
                     response.users.forEach(function(user) {
                         html += '<tr>';
                         html += '<td>' + user.name + '</td>';
-                        html += '<td>' + user.email + '</td>';
+                        if(user.added_by != 0){
+                            html += '<td>' + user.email + '</td>';
+                        }else{
+                            html += '<td>Null</td>';
+                        }
+                        
                         html += '<td>' + user.mobile + '</td>';
                         html += '<td>' + user.experience + '</td>';
                         html += '<td>' + user.salary + '</td>';

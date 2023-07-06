@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 use App\Models\DeveloperOnboarding;
 
 
-class DeveloperController extends Controller
+class DeveloperController extends BaseController
 {
 
     public function index()

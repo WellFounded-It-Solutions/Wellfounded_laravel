@@ -10,7 +10,7 @@ use App\Models\AgencyOnboarding;
 use DB;
 
 
-class OnboardingController extends Controller
+class OnboardingController extends BaseController
 {
     public function index()
     {

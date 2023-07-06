@@ -17,20 +17,20 @@
     <div class="sidebar-content">
         <div class="nav-container">
             <nav id="main-menu-navigation" class="navigation-main">
-                <div class="nav-item {{ ($segment2 == 'admin/dashboard') ? 'active' : '' }}">
+                <div class="nav-item {{ ($menu['menu'] == 'Dashboard') ? 'active' : '' }}">
                     <a href="{{url('/admin/dashboard')}}"><i class="ik ik-bar-chart-2"></i><span> {{ __('Dashboard')}}</span></a>
                    
                 </div>
 
                 <!-- start inventory pages -->
-                 <div class="nav-item {{ ($segment1 == 'manage_developer') ? 'active' : '' }}">
+                 <div class="nav-item {{ ($menu['menu'] == 'Manage Developer') ? 'active' : '' }}">
                     <a href="{{url('/admin/manage-developer')}}"><i class="ik ik-users"></i><span>{{ __('Manage Developer')}}</span> </a>
                 </div>
 
-                <div class="nav-item {{ ($segment1 == 'manage_agency') ? 'active' : '' }}">
+                <div class="nav-item {{ ($menu['menu'] == 'Manage Agencies') ? 'active' : '' }}">
                     <a href="{{url('/admin/manage-agency')}}"><i class="ik ik-home"></i><span>{{ __('Manage Agency')}}</span> </a>
                 </div>
-                <div class="nav-item {{ ($segment1 == 'manage_client') ? 'active' : '' }}">
+                <div class="nav-item {{ ($menu['menu'] == 'Manage Client') ? 'active' : '' }}">
                     <a href="{{url('/admin/manage-client')}}"><i class="ik ik-briefcase"></i><span>{{ __('Manage Client')}}</span> </a>
                 </div>
 
