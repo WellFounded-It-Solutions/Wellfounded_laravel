@@ -10,7 +10,7 @@ use App\Models\AgencyOnboarding;
 use DB;
 
 
-class OnboardingController extends BaseController
+class OnboardingController extends Controller
 {
     public function index()
     {
@@ -27,7 +27,7 @@ class OnboardingController extends BaseController
         }
 
         $menu['menu'] = 'Onboarding';
-        return view('agency.onboarding');
+        return view('agency.onboarding', compact('menu'));
     }
 
 

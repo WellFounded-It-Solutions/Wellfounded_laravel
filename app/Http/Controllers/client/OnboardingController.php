@@ -27,7 +27,7 @@ class OnboardingController extends Controller
         }
 
         $menu['menu'] = 'Onboarding';
-        return view('clients.onboarding');
+        return view('clients.onboarding', compact('menu'));
     }
 
 
