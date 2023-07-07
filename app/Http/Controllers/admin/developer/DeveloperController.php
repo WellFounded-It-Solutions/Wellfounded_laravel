@@ -9,6 +9,7 @@ use App\Models\DeveloperExperience;
 use App\Models\DeveloperOnboarding;
 use App\Models\User;
 use Illuminate\Http\Request;
+use DB;
 
 
 class DeveloperController extends BaseController
@@ -76,7 +77,7 @@ class DeveloperController extends BaseController
         $certifications = DeveloperCertification::where('user_id', $userID)->get();
         $educations = DeveloperEducation::where('user_id', $userID)->get();
 
-        return view('admin.developer.developerProfile', compact('user', 'menu', 'experiences','certifications','educations'));
+        return view('admin.developer.developerProfile', compact('user', 'menu', 'experiences', 'certifications', 'educations'));
     }
 
     public function changeDeveloperWorkingStatus(Request $request)
@@ -87,10 +88,32 @@ class DeveloperController extends BaseController
 
         // Update the user's working status based on isChecked
 
-        // Example logic:
-        $user = DeveloperOnboarding::where('user_id', $user_id)->first();
-        $user->workingStatus = $workingStatus;
-        $user->save();
+        // Retrieve the user from the database
+        $test = DeveloperOnboarding::where('user_id', $user_id)->first();
+
+        if (!$test) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'First update the user profile'
+            ]);
+        }
+
+
+        DB::beginTransaction();
+
+        try {
+            DB::table('developer_onboardings')
+                ->where('user_id', $user_id)
+                ->update(['workingStatus' => $workingStatus]);
+
+            DB::commit();
+
+            // Success message or further actions
+        } catch (\Exception $e) {
+            DB::rollback();
+
+            // Error handling or error message
+        }
 
         // Return a JSON response with success status and message
         return response()->json([

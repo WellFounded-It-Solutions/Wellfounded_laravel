@@ -178,12 +178,12 @@
                     </div>
                     <div class="form-group">
                         <label>{{ __('Resume upload') }}</label>
-                        <input accept="application/pdf" type="file" name="resume" class="file-upload-default">
+                        <input accept=".pdf, .doc, .docx" type="file" name="resume" class="file-upload-default">
                         @error('resume')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload document">
                             <span class="input-group-append">
                                 <button class="file-upload-browse btn btn-primary" type="button">{{ __('Upload') }}</button>
                             </span>
@@ -191,12 +191,12 @@
                     </div>
                     <div class="form-group">
                         <label>{{ __('Portfolio upload') }}</label>
-                        <input accept="application/pdf" type="file" name="portfolio" class="file-upload-default">
+                        <input accept=".pdf, .doc, .docx" type="file" name="portfolio" class="file-upload-default">
                         @error('portfolio')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload document">
                             <span class="input-group-append">
                                 <button class="file-upload-browse btn btn-primary" type="button">{{ __('Upload') }}</button>
                             </span>

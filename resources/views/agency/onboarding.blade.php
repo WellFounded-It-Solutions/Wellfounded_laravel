@@ -185,13 +185,13 @@
                         </div>
                         <div class="form-group">
                             <label>{{ __('Upload Legal Document') }}</label>
-                            <input type="file" accept="application/pdf" name="document" class="file-upload-default">
+                            <input type="file" accept=".pdf, .doc, .docx" name="document" class="file-upload-default">
                             @error('document')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="input-group col-xs-12">
                                 <input type="text" class="form-control file-upload-info" disabled
-                                    placeholder="Upload Image">
+                                    placeholder="Upload document">
                                 <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary"
                                         type="button">{{ __('Upload') }}</button>
@@ -200,13 +200,13 @@
                         </div>
                         <div class="form-group">
                             <label>{{ __('GST Upload') }}</label>
-                            <input type="file" accept="application/pdf" name="gst" class="file-upload-default">
+                            <input type="file" accept=".pdf, .doc, .docx" name="document" class="file-upload-default">
                             @error('gst')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="input-group col-xs-12">
                                 <input type="text" class="form-control file-upload-info" disabled
-                                    placeholder="Upload Image">
+                                    placeholder="Upload document">
                                 <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary"
                                         type="button">{{ __('Upload') }}</button>

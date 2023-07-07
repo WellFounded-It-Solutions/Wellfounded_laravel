@@ -951,7 +951,7 @@
         var isChecked = $(checkbox).is(':checked');
         let workingStatus = 'Hired';
         if (isChecked == true) {
-            workingStatus = 'Open to work';
+            workingStatus = 'Open To Work';
         }
 
         // Make an AJAX request

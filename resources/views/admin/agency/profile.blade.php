@@ -625,7 +625,7 @@
                         </div>
                         <hr>
                         <p>
-                            {{$user->remark}}
+                            {{$user->about}}
                         </p>
                         <div class="row mt-30">
                             <div class="col-sm-6">
