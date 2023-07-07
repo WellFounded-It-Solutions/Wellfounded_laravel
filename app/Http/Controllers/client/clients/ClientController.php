@@ -1,70 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\admin\clients;
+namespace App\Http\Controllers\client\clients;
 
-use App\Http\Controllers\admin\BaseController;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\client\BaseController;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use Auth;
 
 use App\Models\ClientOnboarding;
 use App\Models\ClientSkill;
 use App\Models\ClientImage;
 use App\Models\ClientDocument;
 use App\Models\ClientRequirement;
+use DB;
 
 
 class ClientController extends BaseController
 {
 
-    public function index()
-    {
-        $menu['menu'] = 'Manage Client';
-        $users = User::select('users.id as id', 'client_onboardings.*', 'users.*')
-            ->leftJoin('client_onboardings', 'users.id', '=', 'client_onboardings.user_id')
-            ->where('role', 4)
-            ->get();
-        return view('admin.clients.manage_client', compact('users', 'menu'));
-    }
-
-    public function filter(Request $request)
-    {
-        // Retrieve the filter parameters from the request
-        $location = $request->input('location', []);
-        $organizationSize = $request->input('organizationSize', []);
-        $organizationType = $request->input('organizationType', []);
-        $designation = $request->input('designation', []);
-
-
-        $users = User::query()
-            ->leftJoin('client_onboardings', 'users.id', '=', 'client_onboardings.user_id')
-            ->where('role', 4)
-            ->when(!empty($location), function ($query) use ($location) {
-                $query->whereIn('client_onboardings.location', $location);
-            })
-            ->when(!empty($organizationSize), function ($query) use ($organizationSize) {
-                $query->whereIn('client_onboardings.organizationSize', $organizationSize);
-            })
-            ->when(!empty($organizationType), function ($query) use ($organizationType) {
-                $query->whereIn('client_onboardings.organizationType', $organizationType);
-            })
-            ->when(!empty($designation), function ($query) use ($designation) {
-                $query->whereIn('client_onboardings.designation', $designation);
-            })
-            ->get();
-
-
-        // Render the filtered data as JSON response
-        return response()->json(['users' => $users]);
-    }
-
-    
-
   
 
-    public function clientProfile(Request $request, $userID)
+
+
+    public function profile(Request $request, )
     {
+        $userID = Auth::user()->id;
         $menu['menu'] = 'Manage Client';
         $user = User::select('users.id as id', 'client_onboardings.*', 'users.*')
             ->leftJoin('client_onboardings', 'users.id', '=', 'client_onboardings.user_id')
@@ -76,10 +36,8 @@ class ClientController extends BaseController
         $documents = ClientDocument::where('user_id', $userID)->where('is_portfolio', 0)->get();
         $portfolios = ClientDocument::where('user_id', $userID)->where('is_portfolio', 1)->get();
 
-        $clientRequirements = ClientRequirement::where('user_id', $userID)->get();
 
-
-        return view('admin.clients.profile', compact('user', 'menu', 'skills', 'images', 'documents', 'portfolios', 'clientRequirements'));
+        return view('clients.profile', compact('user', 'menu', 'skills', 'images', 'documents', 'portfolios',));
     }
 
 
@@ -91,22 +49,55 @@ class ClientController extends BaseController
             ->where('role', 4)
             ->find($request->id);
 
-        return view('admin.clients.onboarding', compact('user', 'menu'));
+        return view('clients.onboardingUpdate', compact('user', 'menu'));
     }
 
+    public function viewRequirement(Request $request)
+    {
+        $menu['menu'] = 'Manage Requirement';
+        $requirements = ClientRequirement::where('user_id', Auth::user()->id)->get();
+        return view('clients.requirement', compact('requirements', 'menu'));
+    }
+    
 
     public function updateClientRequirement(Request $request)
     {
-        $menu['menu'] = 'Manage Client';
+        $menu['menu'] = 'Manage Requirement';
+
         $requirement = ClientRequirement::find($request->id);
 
-        return view('admin.clients.requirement', compact('requirement', 'menu'));
+        return view('clients.requirementUpdate', compact('requirement', 'menu'));
+    }
+
+    public function requirementData(Request $request)
+    {
+        // Retrieve the filter parameters from the request
+        $status = $request->input('status', []);
+        $skillsArray = $request->input('skills', []);
+
+        $users = ClientRequirement::query()
+        
+            ->where('user_id', Auth::user()->id)
+            ->when(!empty($status), function ($query) use ($status) {
+                $query->whereIn('status', $status);
+            })
+            ->when(!empty($skillsArray), function ($query) use ($skillsArray) {
+                $query->where(function ($query) use ($skillsArray) {
+                    foreach ($skillsArray as $skill) {
+                        $query->orWhere('skills', 'LIKE', '%' . $skill . '%');
+                    }
+                });
+            })
+            ->get();
+
+
+        // Render the filtered data as JSON response
+        return response()->json(['users' => $users]);
     }
 
     public function postRequirementSave(Request $request)
     {
         $input = $request->all();
-        $input['user_id'] = $request->user_id;
 
         if($input['currentStatus'] == 'Delete Post'){
             $experience = ClientRequirement::findOrFail($request->id);
@@ -114,6 +105,7 @@ class ClientController extends BaseController
     
             return redirect()->route('client.viewRequirement')->with('danger', 'Requirement deleted successfully.');
         }
+        $input['user_id'] = $request->user_id;
 
         $skills = implode(',', $request->skills);
         $input['skills'] = $skills;
@@ -121,7 +113,7 @@ class ClientController extends BaseController
         $clientRequirement = ClientRequirement::find($request->id);
         $clientRequirement->update($input);
         
-        return redirect()->route('admin.clientProfile', $request->user_id)->with('success', 'Requirement updated successfully.');
+        return redirect()->route('client.viewRequirement')->with('success', 'Requirement updated successfully.');
 
 
     }
@@ -183,7 +175,7 @@ class ClientController extends BaseController
 
 
         $onboarding->save();
-        return redirect()->route('admin.clientProfile', $userId)->with('success', 'Client profile updated successfully.');
+        return redirect()->route('client.profile')->with('success', 'Client profile updated successfully.');
     }
 
 

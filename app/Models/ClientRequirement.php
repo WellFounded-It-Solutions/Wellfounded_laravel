@@ -21,5 +21,6 @@ class ClientRequirement extends Model
         'jobType',
         'duration',
         'description',
+        'currentStatus'
     ];
 }

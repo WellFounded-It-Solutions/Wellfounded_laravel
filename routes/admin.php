@@ -21,6 +21,7 @@ Route::group(['middleware' => 'role:1'], function () {
 
         Route::get('/manage-developer', [DeveloperController::class, 'index'])->name('admin.manage_developers');
         Route::post('/developer-data', [DeveloperController::class, 'filter'])->name('admin.developersFilter');
+        
         Route::get('/developer/profile/update', [DeveloperController::class, 'updateDeveloperProfile'])->name('admin.updateDeveloperProfile');
         Route::post('/developer/profile/update', [DeveloperController::class, 'developerOnboardingPost'])->name('admin.developerOnboardingPost');
         Route::get('/developer/profile/{userID}', [DeveloperController::class, 'developerProfile'])->name('admin.developerProfile');

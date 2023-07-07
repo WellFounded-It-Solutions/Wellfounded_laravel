@@ -140,7 +140,11 @@
                     <tbody>
                         @foreach($users as $user)
                         <tr>
-                            <td>{{$user->name}}</td>
+                        <td>
+
+                            <a href="{{route('agency.developerProfile', $user->id)}}">{{$user->name}}
+                            </a>
+                        </td>
                             <td>{{ $user->experience}}</td>
                             <td>{{ $user->salary}}</td>
                             <td>{{ $user->skills}}</td>
@@ -289,7 +293,7 @@
                     var html = '';
                     response.users.forEach(function(user) {
                         html += '<tr>';
-                        html += '<td>' + user.name + '</td>';
+                        html += '<td><a href="/agency/developer/profile/'+user.id+'">' + user.name + '</a></td>';
                         html += '<td>' + user.experience + '</td>';
                         html += '<td>' + user.salary + '</td>';
                         html += '<td>' + user.skills + '</td>';

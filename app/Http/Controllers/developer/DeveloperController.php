@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\admin\developer;
+namespace App\Http\Controllers\developer;
 
-use App\Http\Controllers\admin\BaseController;
 use App\Models\DeveloperCertification;
 use App\Models\DeveloperEducation;
 use App\Models\DeveloperExperience;
@@ -14,71 +13,6 @@ use DB;
 
 class DeveloperController extends BaseController
 {
-
-    public function index()
-    {
-        $menu['menu'] = 'Manage Developer';
-        $users = User::select('users.id as id', 'developer_onboardings.*', 'users.*')
-            ->leftJoin('developer_onboardings', 'users.id', '=', 'developer_onboardings.user_id')
-            ->where('role', 3)
-            ->get();
-
-        return view('admin.developer.manage_developer', compact('users', 'menu'));
-    }
-
-    public function filter(Request $request)
-    {
-        // Retrieve the filter parameters from the request
-        $workingStatus = $request->input('workingStatus', []);
-        $skillsArray = $request->input('skills', []);
-        $employmentType = $request->input('employementType', []);
-        $experience = $request->input('experience', []);
-        $salary = $request->input('salary', []);
-
-
-        $users = User::query()->select('users.id as id', 'developer_onboardings.*', 'users.*')
-            ->leftJoin('developer_onboardings', 'users.id', '=', 'developer_onboardings.user_id')
-            ->where('role', 3)
-            ->when(!empty($workingStatus), function ($query) use ($workingStatus) {
-                $query->whereIn('developer_onboardings.workingStatus', $workingStatus);
-            })
-            ->when(!empty($skillsArray), function ($query) use ($skillsArray) {
-                $query->where(function ($query) use ($skillsArray) {
-                    foreach ($skillsArray as $skill) {
-                        $query->orWhere('developer_onboardings.skills', 'LIKE', '%' . $skill . '%');
-                    }
-                });
-            })
-            ->when(!empty($employmentType), function ($query) use ($employmentType) {
-                $query->whereIn('developer_onboardings.employementType', $employmentType);
-            })
-            ->when(!empty($experience), function ($query) use ($experience) {
-                $query->whereIn('developer_onboardings.experience', $experience);
-            })
-            ->when(!empty($salary), function ($query) use ($salary) {
-                $query->whereIn('developer_onboardings.salary', $salary);
-            })
-            ->get();
-
-
-        // Render the filtered data as JSON response
-        return response()->json(['users' => $users]);
-    }
-
-    public function developerProfile(Request $request, $userID)
-    {
-        $menu['menu'] = 'Manage Developer';
-        $user = User::select('users.id as id', 'developer_onboardings.*', 'users.*')
-            ->leftJoin('developer_onboardings', 'users.id', '=', 'developer_onboardings.user_id')
-            ->where('role', 3)
-            ->find($userID);
-
-        $experiences = DeveloperExperience::where('user_id', $userID)->get();
-        $certifications = DeveloperCertification::where('user_id', $userID)->get();
-        $educations = DeveloperEducation::where('user_id', $userID)->get();
-
-        return view('admin.developer.developerProfile', compact('user', 'menu', 'experiences', 'certifications', 'educations'));
-    }
 
     public function changeDeveloperWorkingStatus(Request $request)
     {
@@ -124,13 +58,14 @@ class DeveloperController extends BaseController
 
     public function updateDeveloperProfile(Request $request)
     {
+        
         $menu['menu'] = 'Manage Developer';
         $user = User::select('users.id as id', 'developer_onboardings.*', 'users.*')
             ->leftJoin('developer_onboardings', 'users.id', '=', 'developer_onboardings.user_id')
             ->where('role', 3)
             ->find($request->id);
 
-        return view('admin.developer.developerOnboarding', compact('user', 'menu'));
+        return view('developer.developerOnboarding', compact('user', 'menu'));
     }
 
     public function developerOnboardingPost(Request $request)
@@ -208,6 +143,6 @@ class DeveloperController extends BaseController
         $onboarding->save();
 
         // Redirect the user after successful update
-        return redirect()->route('admin.developerProfile', $userId)->with('success', 'Developer profile updated successfully.');
+        return redirect()->route('developer.profile')->with('success', 'Developer profile updated successfully.');
     }
 }

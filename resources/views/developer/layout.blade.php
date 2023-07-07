@@ -2,6 +2,21 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
 <head>
 	<title>@yield('title','') | Radmin - Laravel Admin Starter</title>
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+	<script>
+		toastr.options = {
+			"closeButton": true,
+			"progressBar": true,
+			// Add any additional options as per your requirements
+		};
+	</script>
+
+
 	<!-- initiate head with meta tags, css and script -->
 	@include('include.head')
 
@@ -9,7 +24,7 @@
 <body id="app" >
     <div class="wrapper">
     	<!-- initiate header-->
-    	@include('include.header')
+    	@include('developer.header')
     	<div class="page-wrap">
 	    	<!-- initiate sidebar-->
 	    	@include('developer.developer_sidebar')
@@ -28,6 +43,22 @@
 
     	</div>
     </div>
+
+	<div class="col-xl-12">
+		@if ($message = Session::get('danger'))
+		<script>
+			toastr.error('{{ $message }}');
+		</script>
+		@endif
+
+		@if ($message = Session::get('success'))
+		<script>
+			toastr.success('{{ $message }}');
+		</script>
+		@endif
+
+	</div>
+
     
 	<!-- initiate modal menu section-->
 	@include('include.modalmenu')

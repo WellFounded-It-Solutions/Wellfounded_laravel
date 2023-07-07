@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('clients.layout')
 @section('title', $menu['menu'])
 
 @section('content')
@@ -9,11 +9,14 @@
                 <h3>{{ __('Update Requirement') }}</h3>
             </div>
             <div class="card-body">
-                <form class="forms-sample" action="{{ route('admin.postRequirementSave') }}" method="POST">
+                <form class="forms-sample" action="{{ route('client.postRequirementSave') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" value="{{$requirement->id}}">
                     <input type="hidden" name="user_id" value="{{$requirement->user_id}}">
                     <div class="row">
+
+                    
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="jobTitle">{{ __('Job Title') }}</label>
@@ -141,7 +144,6 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">{{ __('Status') }} </label>

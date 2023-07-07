@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\admin\agency;
+namespace App\Http\Controllers\agency;
 
-use App\Http\Controllers\admin\BaseController;
 use App\Models\AgencyOnboarding;
 use App\Models\AgencySkill;
 use App\Models\AgencyImage;
@@ -10,50 +9,16 @@ use App\Models\AgencyDocument;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Auth;
 
 class AgencyController extends BaseController
 {
 
 
-    public function index()
+
+    public function profile(Request $request)
     {
-        $menu['menu'] = 'Manage Agencies';
-        $users = User::select('users.id as id', 'agency_onboardings.*', 'users.*')
-            ->leftJoin('agency_onboardings', 'users.id', '=', 'agency_onboardings.user_id')
-            ->where('role', 2)
-            ->get();
-        return view('admin.agency.manage_agency', compact('users', 'menu'));
-    }
-
-    public function filter(Request $request)
-    {
-        // Retrieve the filter parameters from the request
-        $location = $request->input('location', []);
-        $organizationSize = $request->input('organizationSize', []);
-        $organizationType = $request->input('organizationType', []);
-
-
-        $users = User::query()->select('users.id as id', 'agency_onboardings.*', 'users.*')
-            ->leftJoin('agency_onboardings', 'users.id', '=', 'agency_onboardings.user_id')
-            ->where('role', 2)
-            ->when(!empty($location), function ($query) use ($location) {
-                $query->whereIn('agency_onboardings.location', $location);
-            })
-            ->when(!empty($organizationSize), function ($query) use ($organizationSize) {
-                $query->whereIn('agency_onboardings.organizationSize', $organizationSize);
-            })
-            ->when(!empty($organizationType), function ($query) use ($organizationType) {
-                $query->whereIn('agency_onboardings.organizationType', $organizationType);
-            })
-            ->get();
-
-
-        // Render the filtered data as JSON response
-        return response()->json(['users' => $users]);
-    }
-
-    public function agencyProfile(Request $request, $userID)
-    {
+        $userID = Auth::user()->id;
         $menu['menu'] = 'Manage Agencies';
         $user = User::select('users.id as id', 'agency_onboardings.*', 'users.*')
             ->leftJoin('agency_onboardings', 'users.id', '=', 'agency_onboardings.user_id')
@@ -65,13 +30,9 @@ class AgencyController extends BaseController
         $documents = AgencyDocument::where('user_id', $userID)->where('is_portfolio', 0)->get();
         $portfolios = AgencyDocument::where('user_id', $userID)->where('is_portfolio', 1)->get();
         
-        $developers =User::select('users.id as id', 'developer_onboardings.*', 'users.*')
-        ->leftJoin('developer_onboardings', 'users.id', '=', 'developer_onboardings.user_id')
-        ->where('role', 3)
-        ->where('users.added_by', $userID)
-        ->get();
+       
 
-        return view('admin.agency.profile', compact('user', 'menu', 'skills','images','documents','portfolios','developers'));
+        return view('agency.profile', compact('user', 'menu', 'skills','images','documents','portfolios'));
     }
 
 
@@ -84,7 +45,7 @@ class AgencyController extends BaseController
             ->where('role', 2)
             ->find($request->id);
 
-        return view('admin.agency.onboarding', compact('user', 'menu'));
+        return view('agency.onboardingUpdate', compact('user', 'menu'));
     }
 
     public function agencyOnboardingPost(Request $request)
@@ -142,7 +103,7 @@ class AgencyController extends BaseController
 
 
         $onboarding->save();
-        return redirect()->route('admin.agencyProfile', $userId)->with('success', 'Agency profile updated successfully.');
+        return redirect()->route('agency.profile')->with('success', 'Agency profile updated successfully.');
     }
 
     public function storeImages(Request $request)
