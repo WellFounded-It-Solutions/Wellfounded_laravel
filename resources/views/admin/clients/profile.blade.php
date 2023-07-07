@@ -25,7 +25,7 @@
                     <i class="ik ik-file-text bg-blue"></i>
                     <div class="d-inline">
                         <h5>{{ __('Profile')}}</h5>
-                        <span>{{ __('View Update agency profile')}}</span>
+                        <span>{{ __('View Update client profile')}}</span>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                             <a href="#">wellfounded</a>
                         </li>
                         <li class="breadcrumb-item" aria-current="page">
-                            <a href="{{route('admin.manage_agency')}}">Manage Agencies</a>
+                            <a href="{{route('admin.manage_client')}}">Manage Clients</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">Profile</li>
                     </ol>
@@ -56,11 +56,11 @@
                     <div class="text-center">
                         <img src="@if($user->logo != ''){{asset($user->logo)}} @else {{asset('../img/user.jpg')}} @endif" class="rounded-circle" width="150" />
                         <h4 class="card-title mt-10">{{ $user['name']}}</h4>
-                        <p class="card-subtitle">@if($user['tagline']) {{$user['tagline']}} @else Update tagline @endif &nbsp; <a href="{{url('/admin/agency/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></p>
+                        <p class="card-subtitle">@if($user['tagline']) {{$user['tagline']}} @else Update tagline @endif &nbsp; <a href="{{url('/admin/client/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></p>
                         <div class="row text-center justify-content-md-center">
                             <div class="col-4"><a href="javascript:void(0)" class="link">
                                     <i class="ik ik-user"></i>
-                                    <font class="font-medium"><?php $no_of_deve = \App\Models\User::where('added_by', $user->id)->get();
+                                    <font class="font-medium"><?php $no_of_deve = \App\Models\ClientRequirement::where('user_id', $user->id)->get();
                                                                 echo (count($no_of_deve)); ?></font>
                                 </a>
                             </div>
@@ -73,14 +73,14 @@
 
 
                 <div class="card-body">
-                    <small class="text-muted d-block">{{ __('Email')}} &nbsp; &nbsp; <a href="{{url('/admin/agency/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></small>
+                    <small class="text-muted d-block">{{ __('Email')}} &nbsp; &nbsp; <a href="{{url('/admin/client/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></small>
                     <h6> @if($user->email) {{$user->email}} @else <i>Not available</i> @endif</h6>
-                    <small class="text-muted d-block pt-10">Phone &nbsp; &nbsp; <a href="{{url('/admin/agency/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></small>
+                    <small class="text-muted d-block pt-10">Phone &nbsp; &nbsp; <a href="{{url('/admin/client/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></small>
                     <h6> @if($user->mobile) {{$user->mobile}} @else <i>Not available</i> @endif</h6>
-                    <small class="text-muted d-block pt-10">Location &nbsp; &nbsp; <a href="{{url('/admin/agency/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></small>
+                    <small class="text-muted d-block pt-10">Location &nbsp; &nbsp; <a href="{{url('/admin/client/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></small>
                     <h6> @if($user->location) {{$user->location}} @else <i>Not available</i> @endif</h6>
 
-                    <small class="text-muted d-block pt-10">Website &nbsp; &nbsp; <a href="{{url('/admin/agency/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></small>
+                    <small class="text-muted d-block pt-10">Website &nbsp; &nbsp; <a href="{{url('/admin/client/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></small>
                     <h6><a href="{{$user->website}}"> @if($user->website) {{$user->website}} @else <i>Not available</i> @endif</a></h6>
 
                     <div class="map-box">
@@ -222,7 +222,7 @@
                                                                 {{$image->name}}
                                                             </td>
                                                             <td>
-                                                                <a href="{{route('admin.deleteDocument')}}?id={{$image->id}}">
+                                                                <a href="{{route('admin.deleteDocumentClient')}}?id={{$image->id}}">
                                                                     <i class="trash ik ik-trash"></i>
                                                                 </a>
                                                             </td>
@@ -248,7 +248,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form class="forms-sample" action="{{route('admin.storeDocuments')}}" method="POST" enctype="multipart/form-data">
+                                            <form class="forms-sample" action="{{route('admin.storeDocumentsClient')}}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{$user->id}}" id="">
                                                 <input type="hidden" name="is_portfolio" value="0" id="">
@@ -339,7 +339,7 @@
                                                                 </div>
                                                             </td>
                                                             <td>
-                                                                <a href="{{route('admin.deleteImage')}}?id={{$image->id}}">
+                                                                <a href="{{route('admin.deleteImageClient')}}?id={{$image->id}}">
                                                                     <i class="trash ik ik-trash"></i>
                                                                 </a>
                                                             </td>
@@ -365,7 +365,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form class="forms-sample" action="{{route('admin.storeImages')}}" method="POST" enctype="multipart/form-data">
+                                            <form class="forms-sample" action="{{route('admin.storeImagesClient')}}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{$user->id}}" id="">
 
@@ -470,7 +470,7 @@
                                                             {{$image->name}}
                                                         </td>
                                                         <td>
-                                                            <a href="{{route('admin.deleteDocument')}}?id={{$image->id}}">
+                                                            <a href="{{route('admin.deleteDocumentClient')}}?id={{$image->id}}">
                                                                 <i class="trash ik ik-trash"></i>
                                                             </a>
                                                         </td>
@@ -496,7 +496,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="forms-sample" action="{{route('admin.storeDocuments')}}" method="POST" enctype="multipart/form-data">
+                                        <form class="forms-sample" action="{{route('admin.storeDocumentsClient')}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="user_id" value="{{$user->id}}" id="">
                                             <input type="hidden" name="is_portfolio" value="1" id="">
@@ -650,7 +650,7 @@
 
                                         <div class="modal-body">
                                             <!-- Form inside the modal -->
-                                            <form class="forms-sample" action="{{route('admin.storeSkills')}}" method="POST" enctype="multipart/form-data">
+                                            <form class="forms-sample" action="{{route('admin.storeSkillsClient')}}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{$user->id}}" id="">
 
@@ -719,7 +719,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                <a href="{{route('admin.deleteAgencySkill')}}?id={{$skill->id}}" type="button" class="btn btn-danger">Delete</a>
+                                                <a href="{{route('admin.deleteSkillClient')}}?id={{$skill->id}}" type="button" class="btn btn-danger">Delete</a>
                                             </div>
                                         </div>
                                     </div>
@@ -745,7 +745,7 @@
 
                                         <div class="modal-body">
                                             <!-- Form inside the modal -->
-                                            <form class="forms-sample" action="{{route('admin.updateSkills')}}" method="POST" enctype="multipart/form-data">
+                                            <form class="forms-sample" action="{{route('admin.updateSkillsClient')}}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="user_id" value="{{$user->id}}" id="">
                                                 <input type="hidden" name="id" value="{{$skill->id}}" id="">
@@ -822,7 +822,7 @@
                             </select>
                         </div>
 
-                        <a href="{{url('/admin/agency/profile/update')}}?id={{$user->id}}" class="btn btn-success" type="button">Update Profile</a>
+                        <a href="{{url('/admin/client/profile/update')}}?id={{$user->id}}" class="btn btn-success" type="button">Update Profile</a>
 
                     </div>
                 </div>
@@ -838,7 +838,7 @@
     <div class="col-lg-12">
         <div class="card  " style="margin-bottom: -4px !important;">
             <div class="card-header d-block">
-                <h3>{{ __('Developers')}}</h3>
+                <h3>{{ __('Requirements')}}</h3>
             </div>
             <div class="card-body" style="padding-top: 0px;overflow:scroll">
 
@@ -847,33 +847,26 @@
                     <table id="order-table" class="table table-striped table-bordered nowrap">
                         <thead>
                             <tr>
-                                <th>{{ __('Name')}}</th>
-                                <th>{{ __('Email')}}</th>
-                                <th>{{ __('Phone')}}</th>
+                                <th>{{ __('Title')}}</th>
+                                <th>{{ __('No of developers')}}</th>
                                 <th>{{ __('Experience')}}</th>
-                                <th>{{ __('Salary')}}</th>
-                                <th>{{ __('Skills')}}</th>
-                                <th>{{ __('Working Status')}}</th>
-                                <th>{{ __('Employement Type')}}</th>
-                                <th>{{ __('Current Status')}}</th>
+                                <th>{{ __('Budget')}}</th>
+                                <th>{{ __('Primary Skills')}}</th>
+                                <th>{{ __('Duration')}}</th>
+                                <th>{{ __('Status')}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($developers as $user)
+                            @foreach($clientRequirements as $clientRequirement)
                             <tr>
                                 <td>
-                                    <a href="{{route('admin.developerProfile', $user->id)}}">
-                                        {{$user->name}}
-                                    </a>
-                                </td>
-                                <td>@if($user->added_by != 0) {{ $user->email}} @else Null @endif</td>
-                                <td>{{ $user->mobile}}</td>
-                                <td>{{ $user->experience}}</td>
-                                <td>{{ $user->salary}}</td>
-                                <td>{{ $user->skills}}</td>
-                                <td>{{ $user->workingStatus}}</td>
-                                <td>{{$user->employementType}}</td>
-                                <td>{{ $user->currentStatus}}</td>
+                                   <a href="{{route('admin.updateClientRequirement')}}?id={{$clientRequirement->id}}"> {{ $clientRequirement->jobTitle }}</a></td>
+                                <td>{{ $clientRequirement->noOfDevelopers }}</td>
+                                <td>{{ $clientRequirement->experience }}</td>
+                                <td>{{ $clientRequirement->budget }}</td>
+                                <td>{{ $clientRequirement->skills }}</td>
+                                <td>{{ $clientRequirement->duration }}</td>
+                                <td>{{ $clientRequirement->status }}</td>
 
                             </tr>
                             @endforeach
@@ -888,45 +881,6 @@
 </div>
 
 
-
-<script>
-    function handleCheckboxChange(checkbox) {
-        var isChecked = $(checkbox).is(':checked');
-        let workingStatus = 'Hired';
-        if (isChecked == true) {
-            workingStatus = 'Open to work';
-        }
-
-        // Make an AJAX request
-        $.ajax({
-            url: "{!! route('admin.changeDeveloperWorkingStatus') !!} ",
-            method: 'POST',
-            data: {
-                workingStatus: workingStatus,
-                user_id: "{!! $user->id !!}"
-            },
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function(response) {
-
-                if (isChecked) {
-                    toastr.success('Working Status changed', 'Open to work');
-                } else {
-                    toastr.error('Working Status changed', 'Hired');
-                }
-                var workingStatus = isChecked ? 'Open To Work' : 'Hired';
-                $('#workingStatus').text(workingStatus);
-
-            },
-            error: function() {
-                toastr.error('Failed to update working status', 'Error');
-                // Restore the checkbox state if there was an error
-                $(checkbox).prop('checked', !isChecked);
-            }
-        });
-    }
-</script>
 
 
 <!-- push external js -->

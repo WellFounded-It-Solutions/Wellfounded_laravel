@@ -25,7 +25,7 @@
 <body id="app">
 	<div class="wrapper">
 		<!-- initiate header-->
-		@include('include.header')
+		@include('admin.header')
 		<div class="page-wrap">
 			<!-- initiate sidebar-->
 			@include('admin.super_admin_sidebar')

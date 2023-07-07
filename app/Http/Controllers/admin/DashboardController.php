@@ -15,6 +15,12 @@ class DashboardController extends BaseController
         return view('admin.dashboard', compact('menu'));
     }
 
+    public function profile() {
+        $menu['menu'] = 'Profile';
+
+        return view('admin.profile', compact('menu'));
+    }
+
     public function manage_developers()
     {
         $menu['menu'] = 'Products';
