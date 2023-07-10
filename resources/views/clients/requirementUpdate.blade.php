@@ -147,10 +147,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">{{ __('Status') }} </label>
-                                <select class="form-control select2" required name="currentStatus">
-                                    <option {{ old('currentStatus', $requirement->currentStatus) == 'Publish' ? 'selected' : '' }}>{{ __('Publish') }}</option>
-                                    <option {{ old('currentStatus', $requirement->currentStatus) == 'Unpublish Post' ? 'selected' : '' }}>{{ __('Unpublish Post') }}</option>
-                                    <option {{ old('currentStatus', $requirement->currentStatus) == 'Delete Post' ? 'selected' : '' }}>{{ __('Delete Post') }}</option>
+                                <select class="form-control select2" required name="status">
+                                    <option {{ old('status', $requirement->status) == 'Publish' ? 'selected' : '' }}>{{ __('Publish') }}</option>
+                                    <option {{ old('status', $requirement->status) == 'Unpublish Post' ? 'selected' : '' }}>{{ __('Unpublish Post') }}</option>
+                                    <option {{ old('status', $requirement->status) == 'Delete Post' ? 'selected' : '' }}>{{ __('Delete Post') }}</option>
                                     
                                 </select>
                             </div>

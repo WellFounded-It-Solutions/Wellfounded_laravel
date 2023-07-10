@@ -108,7 +108,7 @@ class ClientController extends BaseController
         $input = $request->all();
         $input['user_id'] = $request->user_id;
 
-        if($input['currentStatus'] == 'Delete Post'){
+        if($input['status'] == 'Delete Post'){
             $experience = ClientRequirement::findOrFail($request->id);
             $experience->delete();
     
