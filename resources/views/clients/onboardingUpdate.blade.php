@@ -174,7 +174,7 @@
                     </div>
                     <div class="form-group">
                         <label>{{ __('Upload Logo') }}</label>
-                        <input type="file" name="logo" class="file-upload-default">
+                        <input type="file" name="logo" accept="image/png, image/gif, image/jpeg" class="file-upload-default">
                         @error('logo')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
