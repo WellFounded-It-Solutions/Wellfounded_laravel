@@ -202,7 +202,7 @@
                         </div>
                         <div class="form-group">
                             <label>{{ __('GST Upload') }}</label>
-                            <input type="file" accept=".pdf, .doc, .docx" name="document" class="file-upload-default">
+                            <input type="file" accept=".pdf, .doc, .docx" name="gst" class="file-upload-default">
                             @error('gst')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
