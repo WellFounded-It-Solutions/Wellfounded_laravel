@@ -76,7 +76,7 @@
                
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false"><img class="avatar" src="<?php $profilePic = \App\Models\AgencyOnboarding::where('user_id', Auth::user()->id)->first(); ?>{{asset($profilePic['logo'])}}"
+                        aria-haspopup="true" aria-expanded="false"><img class="avatar" src="<?php $profilePic = \App\Models\AgencyOnboarding::where('user_id', Auth::user()->id)->first(); ?>@if($profilePic){{asset($profilePic['logo'])}} @endif"
                             alt=""></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="{{route('agency.profile')}}"><i class="ik ik-user dropdown-icon"></i>
