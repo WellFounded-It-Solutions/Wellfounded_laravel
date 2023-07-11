@@ -54,7 +54,7 @@
                         <p class="card-subtitle">{{ $user['employementType']}}</p>
                         <div class="row text-center justify-content-md-center">
                             <div class="col-6">
-                                @if($user->wellfounded_id)
+                                @if($user->added_by !=0)
                                 <h4 class="sub-title" style="border-bottom: 0px;"><?= App\Models\User::find($user->added_by)->name; ?></h4>
                                 @else
                                 <h4 class="sub-title" style="border-bottom: 0px;">Wellfounded</h4>

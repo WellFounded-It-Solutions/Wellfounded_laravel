@@ -184,7 +184,7 @@
                                 {{$user->name}}
                             </a>
                             </td>
-                            <td>@if($user->added_by != 0) {{ $user->email}} @else Null @endif</td>
+                            <td>@if($user->added_by == 0) {{ $user->email}} @else Null @endif</td>
                             <td>{{ $user->mobile}}</td>
                             <td>{{ $user->experience}}</td>
                             <td>{{ $user->salary}}</td>
@@ -339,7 +339,7 @@
                     response.users.forEach(function(user) {
                         html += '<tr>';
                         html += '<td><a href="/admin/developer/profile/'+user.id+'">' + user.name + '</a></td>';
-                        if(user.added_by != 0){
+                        if(user.added_by == 0){
                             html += '<td>' + user.email + '</td>';
                         }else{
                             html += '<td>Null</td>';
