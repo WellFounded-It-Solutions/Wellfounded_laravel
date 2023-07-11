@@ -144,15 +144,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="exampleInputSalary">{{ __('Salary Expectation (Per Month)') }}</label>
-                                <!-- <input type="text" name="" value="{{ old('salary') }}" required
-                                        class="form-control" id="salary" placeholder="Salary (per month)"> -->
-                                <select class="form-control select2" required name="salary">
+                                <input type="text" name="salary" value="{{  $user->salary  }}" required
+                                        class="form-control" id="salary" placeholder="Salary (per month)">
+                                <!-- <select class="form-control select2" required name="salary">
                                     <option {{ $user->salary == 'Less then 100000' ? 'selected' : '' }}>{{ __('Less then 100000') }}</option>
                                     <option {{ $user->salary == '1 lac to 2 lac' ? 'selected' : '' }}>{{ __('1 lac to 2 lac') }}</option>
                                     <option {{ $user->salary == '2 lac to 3 lac' ? 'selected' : '' }}>{{ __('2 lac to 3 lac') }}</option>
                                     <option {{ $user->salary == 'More then 3lac' ? 'selected' : '' }}>{{ __('More then 3lac') }}</option>
 
-                                </select>
+                                </select> -->
 
 
                             </div>

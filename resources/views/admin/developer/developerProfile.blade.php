@@ -927,12 +927,13 @@
 
                             <div class="form-group">
                                 <label for="example-country">{{ __('Salary Expectation (Per Month)')}}</label>
-                                <select name="example-message" disabled id="example-message" class="form-control">
+                                <input type="text" disabled name="salary" value="{{ $user->salary }}" required class="form-control" id="salary" placeholder="Salary (per month)">
+                                <!-- <select name="example-message" disabled id="example-message" class="form-control">
                                     <option @if($user->salary == 'Less then 100000') selected @endif>{{ __('Less then 100000') }}</option>
                                     <option @if($user->salary == '1 lac to 2 lac') selected @endif>{{ __('1 lac to 2 lac') }}</option>
                                     <option @if($user->salary == '2 lac to 3 lac') selected @endif>{{ __('2 lac to 3 lac') }}</option>
                                     <option @if($user->salary == 'More then 3lac') selected @endif>{{ __('More then 3lac') }}</option>
-                                </select>
+                                </select> -->
                             </div>
 
                             <a href="{{url('/admin/developer/profile/update')}}?id={{$user->id}}" class="btn btn-success" type="button">Update Profile</a>

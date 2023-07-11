@@ -216,6 +216,30 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                    <tr>
+                                                            <td>
+                                                                Legal Document
+                                                            </td>
+                                                            <td>
+                                                                <a href="{{url('/admin/agency/profile/update')}}?id={{$user->id}}">
+                                                                    <i class="trash ik ik-edit"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                               GST
+                                                            </td>
+                                                            <td>
+                                                                <a href="{{url('/admin/agency/profile/update')}}?id={{$user->id}}">
+                                                                    <i class="trash ik ik-edit"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+
+
                                                         @foreach($documents as $image)
                                                         <tr>
                                                             <td>
@@ -277,6 +301,26 @@
                                     <div class="sl-right">
 
                                         <div class="row mt-2">
+
+                                        <div class="col-lg-4 col-md-6 mb-1" style="max-height: 108px;">
+                                                <div class="card" style="height:100%;">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Legal Document</h5>
+                                                        <a href="{{asset($user->document)}}" target="_blank" class="btn btn-primary">Download</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-md-6 mb-1" style="max-height: 108px;">
+                                                <div class="card" style="height:100%;">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">GST</h5>
+                                                        <a href="{{asset($user->gst)}}" target="_blank" class="btn btn-primary">Download</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                             @foreach($documents as $doc)
                                             <div class="col-lg-4 col-md-6 mb-1" style="max-height: 108px;">
                                                 <div class="card" style="height:100%;">

@@ -33,7 +33,7 @@ class DeveloperController extends BaseController
         $skillsArray = $request->input('skills', []);
         $employmentType = $request->input('employementType', []);
         $experience = $request->input('experience', []);
-        $salary = $request->input('salary', []);
+        $salary = $request->input('salary');
 
 
         $users = User::query()->select('users.id as id', 'developer_onboardings.*', 'users.*')
@@ -56,7 +56,7 @@ class DeveloperController extends BaseController
                 $query->whereIn('developer_onboardings.experience', $experience);
             })
             ->when(!empty($salary), function ($query) use ($salary) {
-                $query->whereIn('developer_onboardings.salary', $salary);
+                $query->where('developer_onboardings.salary', 'LIKE', '%' . $salary . '%');
             })
             ->get();
 

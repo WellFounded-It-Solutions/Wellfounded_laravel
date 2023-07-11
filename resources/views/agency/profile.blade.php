@@ -53,7 +53,7 @@
                     <div class="text-center">
                         <img src="@if($user->logo != ''){{asset($user->logo)}} @else {{asset('../img/user.jpg')}} @endif" class="rounded-circle" width="150" />
                         <h4 class="card-title mt-10">{{ $user['name']}}</h4>
-                        <p class="card-subtitle">@if($user['tagline']) {{$user['tagline']}} @else Update tagline @endif &nbsp; <a href="{{url('/admin/agency/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></p>
+                        <p class="card-subtitle">@if($user['tagline']) {{$user['tagline']}} @else Update tagline @endif &nbsp; <a href="{{url('/agency/profile/update')}}?id={{$user->id}}"> <i class="fas fa-edit"></i></a></p>
                         <div class="row text-center justify-content-md-center">
                             <div class="col-4"><a href="javascript:void(0)" class="link">
                                     <i class="ik ik-user"></i>
@@ -213,6 +213,30 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+
+                                                        <tr>
+                                                            <td>
+                                                                Legal Document
+                                                            </td>
+                                                            <td>
+                                                                <a href="{{url('/agency/profile/update')}}?id={{$user->id}}">
+                                                                    <i class="trash ik ik-edit"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                               GST
+                                                            </td>
+                                                            <td>
+                                                                <a href="{{url('/agency/profile/update')}}?id={{$user->id}}">
+                                                                    <i class="trash ik ik-edit"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+
                                                         @foreach($documents as $image)
                                                         <tr>
                                                             <td>
@@ -274,6 +298,29 @@
                                     <div class="sl-right">
 
                                         <div class="row mt-2">
+
+                                            <div class="col-lg-4 col-md-6 mb-1" style="max-height: 108px;">
+                                                <div class="card" style="height:100%;">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Legal Document</h5>
+                                                        <a href="{{asset($user->document)}}" target="_blank" class="btn btn-primary">Download</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-md-6 mb-1" style="max-height: 108px;">
+                                                <div class="card" style="height:100%;">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">GST</h5>
+                                                        <a href="{{asset($user->gst)}}" target="_blank" class="btn btn-primary">Download</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
                                             @foreach($documents as $doc)
                                             <div class="col-lg-4 col-md-6 mb-1" style="max-height: 108px;">
                                                 <div class="card" style="height:100%;">

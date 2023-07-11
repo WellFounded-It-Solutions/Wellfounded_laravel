@@ -136,13 +136,14 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="salary_filter">{{ __('Salary') }}</label>
-                        <select class="form-control select2" id="salary_filter" multiple name="salary">
+                        <input type="text" name="salary" value="{{ old('salary') }}" required class="form-control" id="salary_filter" placeholder="Salary (per month)">
+                        <!-- <select class="form-control select2" id="salary_filter" multiple name="salary">
                             <option {{ old('salary') == 'Less then 100000' ? 'selected' : '' }}>{{ __('Less then 100000') }}</option>
                             <option {{ old('salary') == '1 lac to 2 lac' ? 'selected' : '' }}>{{ __('1 lac to 2 lac') }}</option>
                             <option {{ old('salary') == '2 lac to 3 lac' ? 'selected' : '' }}>{{ __('2 lac to 3 lac') }}</option>
                             <option {{ old('salary') == 'More then 3lac' ? 'selected' : '' }}>{{ __('More then 3lac') }}</option>
 
-                        </select>
+                        </select> -->
                     </div>
                 </div>
             </div>
@@ -303,6 +304,11 @@
         $('.select2').select2();
         // Event listener for the filter elements
         $('#workingStatus_filter, #skills_filter, #empType_filter, #experience_filter, #salary_filter').on('change', function() {
+            // Call the filterData function when any filter value changes
+            filterData();
+        });
+
+        $('#salary_filter').on('keyup', function() {
             // Call the filterData function when any filter value changes
             filterData();
         });
