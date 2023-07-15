@@ -105,7 +105,16 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="secondarySkills">{{ __('Secondary Skills') }}</label>
-                                <input type="text" id="tags" class="form-control" value="{{ old('secondarySkills', $requirement->secondarySkills)}}" name="secondarySkills" placeholder="Secondary Skills">
+                                <select class="form-control select2" name="secondarySkills[]" required multiple="multiple">
+                                <?php $skills2 = explode(',', $requirement->secondarySkills); ?>
+                                    @foreach (getSkills() as $row)
+                                    <option value="{{ $row->name }}" @if(in_array($row->name, $skills2))
+                                        selected
+                                        @endif
+                                        >{{ $row->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -145,10 +154,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">{{ __('Status') }} </label>
-                                <select class="form-control select2" required name="currentStatus">
-                                    <option {{ old('currentStatus', $requirement->currentStatus) == 'Publish' ? 'selected' : '' }}>{{ __('Publish') }}</option>
-                                    <option {{ old('currentStatus', $requirement->currentStatus) == 'Unpublish Post' ? 'selected' : '' }}>{{ __('Unpublish Post') }}</option>
-                                    <option {{ old('currentStatus', $requirement->currentStatus) == 'Delete Post' ? 'selected' : '' }}>{{ __('Delete Post') }}</option>
+                                <select class="form-control select2" required name="status">
+                                    <option {{ old('status', $requirement->status) == 'Publish' ? 'selected' : '' }}>{{ __('Publish') }}</option>
+                                    <option {{ old('status', $requirement->status) == 'Unpublish Post' ? 'selected' : '' }}>{{ __('Unpublish Post') }}</option>
+                                    <option {{ old('status', $requirement->status) == 'Delete Post' ? 'selected' : '' }}>{{ __('Delete Post') }}</option>
                                     
                                 </select>
                             </div>
