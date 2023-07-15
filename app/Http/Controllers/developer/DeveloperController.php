@@ -9,6 +9,7 @@ use App\Models\DeveloperOnboarding;
 use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 
 
 class DeveloperController extends BaseController
@@ -63,7 +64,7 @@ class DeveloperController extends BaseController
         $user = User::select('users.id as id', 'developer_onboardings.*', 'users.*')
             ->leftJoin('developer_onboardings', 'users.id', '=', 'developer_onboardings.user_id')
             ->where('role', 3)
-            ->find($request->id);
+            ->find( Auth::user()->id);
 
         return view('developer.developerOnboarding', compact('user', 'menu'));
     }

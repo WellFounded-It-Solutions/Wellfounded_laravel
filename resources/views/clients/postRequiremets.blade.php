@@ -97,7 +97,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="secondarySkills">{{ __('Secondary Skills') }}</label>
-                                <input type="text" id="tags" class="form-control" value="{{ old('secondarySkills')}}" name="secondarySkills" placeholder="Secondary Skills">
+                                <select class="form-control select2" name="secondarySkills[]" required multiple="multiple">
+                                
+                                    @foreach (getSkills() as $row)
+                                    <option value="{{ $row->name }}"
+                                        >{{ $row->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 

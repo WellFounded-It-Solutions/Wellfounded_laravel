@@ -108,7 +108,18 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="secondarySkills">{{ __('Secondary Skills') }}</label>
-                                <input type="text" id="tags" class="form-control" value="{{ old('secondarySkills', $requirement->secondarySkills)}}" name="secondarySkills" placeholder="Secondary Skills">
+                                <select class="form-control select2" name="secondarySkills[]" required multiple="multiple">
+                                <?php $skills2 = explode(',', $requirement->secondarySkills); ?>
+                                    @foreach (getSkills() as $row)
+                                    <option value="{{ $row->name }}" @if(in_array($row->name, $skills2))
+                                        selected
+                                        @endif
+                                        >{{ $row->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+
+                                <!-- <input type="text" id="tags" class="form-control" value="{{ old('secondarySkills', $requirement->secondarySkills)}}" name="secondarySkills" placeholder="Secondary Skills"> -->
                             </div>
                         </div>
 

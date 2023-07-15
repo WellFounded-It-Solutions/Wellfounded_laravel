@@ -106,9 +106,12 @@ class ClientController extends BaseController
             return redirect()->route('client.viewRequirement')->with('danger', 'Requirement deleted successfully.');
         }
         $input['user_id'] = $request->user_id;
-
+        
         $skills = implode(',', $request->skills);
         $input['skills'] = $skills;
+
+        $secondarySkills = implode(',', $request->secondarySkills);
+        $input['secondarySkills'] = $secondarySkills;
 
         $clientRequirement = ClientRequirement::find($request->id);
         $clientRequirement->update($input);

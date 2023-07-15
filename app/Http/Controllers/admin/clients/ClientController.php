@@ -118,6 +118,9 @@ class ClientController extends BaseController
         $skills = implode(',', $request->skills);
         $input['skills'] = $skills;
 
+        $secondarySkills = implode(',', $request->secondarySkills);
+        $input['secondarySkills'] = $secondarySkills;
+
         $clientRequirement = ClientRequirement::find($request->id);
         $clientRequirement->update($input);
         

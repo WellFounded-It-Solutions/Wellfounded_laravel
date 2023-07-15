@@ -22,6 +22,9 @@ class RequiremetController extends Controller
         $skills = implode(',', $request->skills);
         $input['skills'] = $skills;
 
+        $secondarySkills = implode(',', $request->secondarySkills);
+        $input['secondarySkills'] = $secondarySkills;
+
         $clientRequirement = ClientRequirement::create($input);
 
         return redirect()->route('clients.dashboard')
