@@ -159,6 +159,8 @@ class ClientController extends BaseController
         $onboarding->country = $request->country;
         $onboarding->about = $request->about;
         $onboarding->tagline = $request->tagline;
+        $onboarding->organisationName = $request->organisationName;
+        $onboarding->pinCode = $request->pinCode;
 
         if ($request->file('logo')) {
             $logo = time() . 'logo.' . $request->logo->extension();

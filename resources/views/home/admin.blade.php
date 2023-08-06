@@ -37,7 +37,18 @@
     </nav>
     <div class="container">
 
-       
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <h1>Welcome to the Website</h1>
+                <p>Choose an option to sign in:</p>
+                <div class="btn-group-vertical">
+                    <a href="{{url('/login')}}" type="button" class="btn btn-primary">Login</a>
+                    <a href="{{url('/register?type=agency')}}" type="button" class="btn btn-secondary">Vendor Sign Up</a>
+                    <a href="{{url('/register?type=developer')}}" type="button" class="btn btn-secondary">Developer Sign Up</a>
+                    <a href="{{url('/register?type=client')}}" type="button" class="btn btn-secondary">Client Sign Up</a>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

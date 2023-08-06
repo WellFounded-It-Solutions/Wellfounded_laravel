@@ -64,6 +64,7 @@ class OnboardingController extends Controller
             $user->salary = $request->salary;
             $user->country = $request->country;
             $user->remark = $request->remark;
+            $user->pinCode = $request->pinCode;
             if ($request->file('resume')) {
                 $resume = time() . '.' . $request->resume->extension();
                 $request->resume->move(public_path('resumes'), $resume);

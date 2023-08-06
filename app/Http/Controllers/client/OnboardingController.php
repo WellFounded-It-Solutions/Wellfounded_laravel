@@ -63,6 +63,9 @@ class OnboardingController extends Controller
             $user->location = $request->location;
             $user->country = $request->country;
             $user->about = $request->about;
+            $user->organisationName = $request->organisationName;
+            $user->pinCode = $request->pinCode;
+            
 
             if ($request->file('logo')) {
                 $logo = time() . 'logo.' . $request->logo->extension();

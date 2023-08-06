@@ -187,6 +187,7 @@ class DeveloperController extends BaseController
         $onboarding->country = $validatedData['country'];
         $onboarding->remark = $validatedData['remark'];
         $onboarding->headline = $validatedData['headline'];
+        $onboarding->pinCode = $request->pinCode;
 
         // Handle file uploads if they are present
         if ($request->file('resume')) {

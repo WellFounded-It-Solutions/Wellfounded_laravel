@@ -24,9 +24,13 @@ class HomeController extends Controller
         //     if (isclient())
         //         return view('clients.onboarding');
         // }
-        return view('home.index');
+        
 
-        return view('pages.dashboard');
+        return view('home.index');
+    }
+
+    public function admin(){
+        return view('home.admin');
     }
    
 

@@ -28,7 +28,7 @@ include_once(base_path('routes/client.php'));
 
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('login', [LoginController::class, 'login']);
+Route::post('login', [LoginController::class, 'login'])->name('loginPost');
 Route::post('register', [RegisterController::class, 'register']);
 
 
@@ -269,7 +269,8 @@ Route::get('/login-1', function () {
 
 
 //Home
-Route::get('/',  [HomeController::class, 'index']);
+Route::get('/adminlink',  [HomeController::class, 'admin']);
+Route::get('/',  [LoginController::class, 'showLoginForm']);
 
 
 

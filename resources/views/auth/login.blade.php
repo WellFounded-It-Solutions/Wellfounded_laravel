@@ -34,16 +34,17 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 m-auto">
                     <div class="authentication-form mx-auto">
                         <div class="logo-centered">
-                            <a href="http://radmin.rakibhstu.com"><img height="40" src="{{ asset('img/logo.png') }}"
+
+                            <a href="http://radmin.rakibhstu.com"><img height="40" src="{{ asset('img/Wellfounded.png') }}"
                                     alt="RADMIN"></a>
                         </div>
                         <p>Welcome back! </p>
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('loginPost') }}">
                             @csrf
                             <div class="form-group">
                                 <input id="email" type="email" placeholder="Email"
                                     class="form-control @error('email') is-invalid @enderror" name="email"
-                                    value="admin@test.com" required autocomplete="email" autofocus>
+                                    value="" required autocomplete="email" autofocus>
                                 <i class="ik ik-user"></i>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +55,7 @@
                             <div class="form-group">
                                 <input id="password" type="password" placeholder="Password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
-                                    value="1234" required>
+                                    value="" required>
                                 <i class="ik ik-lock"></i>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -80,7 +81,7 @@
                                 <button class="btn btn-custom">Sign In</button>
                             </div>
                             <div class="register">
-                                <p>{{ __('No account?') }} <a href="{{ url('register') }}">{{ __('Sign Up') }}</a>
+                                <p>{{ __('No account?') }} <a href="https://www.wellfounded.in/">{{ __('Get connected') }}</a>
                                 </p>
                             </div>
 

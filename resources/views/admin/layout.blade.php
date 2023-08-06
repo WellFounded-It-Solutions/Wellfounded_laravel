@@ -4,7 +4,7 @@
 <head>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>@yield('title','') | Radmin - Laravel Admin Starter</title>
+	<title>@yield('title','') | Wellfounded | Hire remote developer</title>
 	<!-- initiate head with meta tags, css and script -->
 	@include('include.head')
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">

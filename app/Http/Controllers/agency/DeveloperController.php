@@ -105,6 +105,7 @@ class DeveloperController extends BaseController
             $user->salary = $request->salary;
             $user->country = $request->country;
             $user->remark = $request->remark;
+            $user->pinCode = $request->pinCode;
             if ($request->file('resume')) {
                 $resume = time() . '.' . $request->resume->extension();
                 $request->resume->move(public_path('resumes'), $resume);
@@ -233,6 +234,8 @@ class DeveloperController extends BaseController
             'profilePic' => 'nullable|image|mimes:png,gif,jpeg',
             'remark' => 'required|string',
             'headline' => 'required|string',
+            'pinCode' => 'required|string',
+            
         ]);
 
         // Get the user ID from the hidden input field
@@ -267,7 +270,8 @@ class DeveloperController extends BaseController
         $onboarding->country = $validatedData['country'];
         $onboarding->remark = $validatedData['remark'];
         $onboarding->headline = $validatedData['headline'];
-
+        $onboarding->pinCode = $validatedData['pinCode'];
+        
         // Handle file uploads if they are present
         if ($request->file('resume')) {
             $resume = time() . '.' . $request->resume->extension();
