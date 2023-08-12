@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
 <head>
-	<title>@yield('title','') | Radmin - Laravel Admin Starter</title>
+	<title>@yield('title','') | Wellfounded | Hire remote developer</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">

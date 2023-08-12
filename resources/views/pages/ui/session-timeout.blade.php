@@ -3,7 +3,7 @@
 @section('content')
     <!-- push external head elements to head -->
     @push('head')
-        <title>{{ __('Session Timeout | Laravel Admin Template - Themekit')}}</title>
+        <title>{{ __('Session Timeout | Wellfounded | Hire remote developer')}}</title>
     @endpush
 
     <div class="container-fluid">

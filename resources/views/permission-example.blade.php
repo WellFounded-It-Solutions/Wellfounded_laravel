@@ -3,7 +3,7 @@
 @section('content')
     <!-- push external head elements to head -->
     @push('head')
-        <title>{{ __('Permission Example | Laravel Admin Template - Themekit') }}</title>
+        <title>{{ __('Permission Example | Wellfounded | Hire remote developer') }}</title>
 
         <link rel="stylesheet" href="{{ asset('plugins/weather-icons/css/weather-icons.min.css') }}">
         <link rel="stylesheet" href="{{ asset('plugins/owl.carousel/dist/assets/owl.carousel.min.css') }}">

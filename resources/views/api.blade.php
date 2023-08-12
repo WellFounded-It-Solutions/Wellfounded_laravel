@@ -35,7 +35,7 @@
                     <div class="card-body">
                             <div class="row">
                                 <div class="col-md-10 p-3">
-                                    {{ __('The Radmin API is a low-level HTTP-based API for a Laravel admin starter kit that you can use to')}}  <code>create/edit/update</code><br> {{ __('Radmin API uses')}}<code>Laravel Passport</code> 
+                                    {{ __('The Radmin API is a low-level HTTP-based API for a Wellfounded | Hire remote developer that you can use to')}}  <code>create/edit/update</code><br> {{ __('Radmin API uses')}}<code>Laravel Passport</code> 
 
                                     <br>
                                     Full documentation and API endpoints: https://documenter.getpostman.com/view/11223504/Szmh1vqc?version=latest
